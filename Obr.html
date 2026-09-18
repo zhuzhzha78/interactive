@@ -4,180 +4,163 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Памятка</title>
 <style>
-  @font-face {
-    font-family: 'bureauserif';
-    src: local('BureauSerif'), local('bureauserif'), local('Bureau Serif');
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+html, body {
+  font-family: 'bureauserif', serif;
+  background: transparent;
+  box-shadow: none;
+}
 
-  body {
-    font-family: 'bureauserif', 'Times New Roman', serif;
-    background: transparent;
-    box-shadow: none;
-    width: 100%;
-    height: auto;
-    min-height: 100%;
-  }
+.interactive {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+}
 
-  .interactive-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 10pt;
-    width: 100%;
-    background: transparent;
-    box-shadow: none;
-    position: relative;
-  }
+.thumbnail {
+  width: 100pt;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: block;
+}
 
-  .left-column {
-    flex-shrink: 0;
-  }
+.content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10pt;
+  min-width: 0;
+}
 
-  .thumb-img {
-    width: 100pt;
-    cursor: pointer;
-    display: block;
-    transition: opacity 0.2s;
-  }
+.text1 {
+  font-size: 14pt;
+  color: #000;
+  line-height: 1.2;
+}
 
-  .thumb-img:hover {
-    opacity: 0.85;
-  }
+.text2 {
+  font-size: 18pt;
+  font-weight: bold;
+  color: #c94342;
+  margin-top: 2pt;
+  line-height: 1.2;
+}
 
-  .right-column {
-    flex: 1;
-    min-width: 0;
-  }
+.divider {
+  height: 2pt;
+  background-color: #c94342;
+  margin-top: 4pt;
+  width: 100%;
+}
 
-  .text1 {
-    font-size: 14pt;
-    color: #000000;
-    line-height: 1.3;
-  }
+.bottom-row {
+  display: flex;
+  align-items: center;
+  margin-top: 8pt;
+}
 
-  .text2 {
-    font-size: 18pt;
-    font-weight: bold;
-    color: #c94342;
-    line-height: 1.3;
-    margin-top: 4pt;
-  }
+.bottom-img {
+  width: 50pt;
+  margin-right: 10pt;
+  cursor: pointer;
+  display: block;
+  flex-shrink: 0;
+}
 
-  .divider-line {
-    height: 2pt;
-    background-color: #c94342;
-    margin-top: 6pt;
-    margin-bottom: 8pt;
-    width: 100%;
-  }
+.bottom-text {
+  font-size: 12pt;
+  color: #000;
+  line-height: 1.2;
+}
 
-  .bottom-row {
-    display: flex;
-    align-items: center;
-    gap: 0;
-  }
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  cursor: pointer;
+}
 
-  .bottom-img {
-    width: 50pt;
-    margin-right: 10pt;
-    cursor: pointer;
-    display: block;
-    flex-shrink: 0;
-    transition: opacity 0.2s;
-  }
+.overlay img {
+  width: 100%;
+  display: block;
+}
 
-  .bottom-img:hover {
-    opacity: 0.85;
-  }
-
-  .bottom-text {
-    font-size: 12pt;
-    color: #000000;
-    line-height: 1.3;
-  }
-
-  .overlay-img {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: auto;
-    max-height: 100vh;
-    object-fit: contain;
-    object-position: left top;
-    z-index: 9999;
-    cursor: pointer;
-    background: transparent;
-  }
-
-  .overlay-img.active {
-    display: block;
-  }
-
-  .overlay-cover {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9998;
-    background: transparent;
-    cursor: pointer;
-  }
-
-  .overlay-cover.active {
-    display: block;
-  }
+.overlay.active {
+  display: block;
+}
 </style>
 </head>
 <body>
-  <div class="interactive-container">
-    <div class="left-column">
-      <img class="thumb-img" id="thumbImg" src="https://e.profkiosk.ru/service_tbn2/9jbeo0gg0uqb.png" alt="Образец — миниатюра">
-    </div>
-    <div class="right-column">
-      <div class="text1">Образец</div>
-      <div class="text2">Как юристу защитить себя от личных рисков в банкротстве</div>
-      <div class="divider-line"></div>
-      <div class="bottom-row">
-        <img class="bottom-img" id="bottomImg" src="https://e.profkiosk.ru/service_tbn2/gm29so.png" alt="Иконка развернуть">
-        <div class="bottom-text">Нажмите на картинку, чтобы развернуть образец</div>
-      </div>
+
+<div class="interactive" id="interactive">
+  <img src="https://e.profkiosk.ru/service_tbn2/9jbeo0gg0uqb.png" class="thumbnail" id="thumbnail" alt="Образец">
+  <div class="content">
+    <div class="text1">Памятка</div>
+    <div class="text2">Как юристу защитить себя от личных рисков в банкротстве</div>
+    <div class="divider"></div>
+    <div class="bottom-row">
+      <img src="https://e.profkiosk.ru/service_tbn2/gm29so.png" class="bottom-img" id="bottomImg" alt="Развернуть">
+      <div class="bottom-text">Нажмите на картинку, чтобы развернуть образец</div>
     </div>
   </div>
+  <div class="overlay" id="overlay">
+    <img src="https://e.profkiosk.ru/service_tbn2/9jbeo0gg0uqb.png" id="fullImage" alt="Образец">
+  </div>
+</div>
 
-  <div class="overlay-cover" id="overlayCover"></div>
-  <img class="overlay-img" id="overlayImg" src="https://e.profkiosk.ru/service_tbn2/9jbeo0gg0uqb.png" alt="Образец — полный размер">
+<script>
+(function() {
+  var thumbnail = document.getElementById('thumbnail');
+  var bottomImg = document.getElementById('bottomImg');
+  var overlay = document.getElementById('overlay');
+  var fullImage = document.getElementById('fullImage');
+  var interactive = document.getElementById('interactive');
 
-  <script>
-    const thumbImg = document.getElementById('thumbImg');
-    const bottomImg = document.getElementById('bottomImg');
-    const overlayImg = document.getElementById('overlayImg');
-    const overlayCover = document.getElementById('overlayCover');
+  function expand() {
+    overlay.classList.add('active');
+    adjustHeight();
+  }
 
-    function expandImage() {
-      overlayImg.classList.add('active');
-      overlayCover.classList.add('active');
+  function collapse() {
+    overlay.classList.remove('active');
+    interactive.style.minHeight = '';
+  }
+
+  function adjustHeight() {
+    var imgHeight = fullImage.offsetHeight;
+    if (imgHeight > 0) {
+      interactive.style.minHeight = imgHeight + 'px';
     }
+  }
 
-    function collapseImage() {
-      overlayImg.classList.remove('active');
-      overlayCover.classList.remove('active');
+  thumbnail.addEventListener('click', expand);
+  bottomImg.addEventListener('click', expand);
+  overlay.addEventListener('click', collapse);
+
+  fullImage.addEventListener('load', function() {
+    if (overlay.classList.contains('active')) {
+      adjustHeight();
     }
+  });
 
-    thumbImg.addEventListener('click', expandImage);
-    bottomImg.addEventListener('click', expandImage);
-    overlayImg.addEventListener('click', collapseImage);
-    overlayCover.addEventListener('click', collapseImage);
-  </script>
+  window.addEventListener('resize', function() {
+    if (overlay.classList.contains('active')) {
+      adjustHeight();
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
