@@ -1,194 +1,150 @@
+
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Образец</title>
-    <style>
-      @font-face {
-        font-family: 'BureauSerif';
-        src: local('Bureau Serif'), local('Bureauserif'), local('bureauserif');
-      }
-      @font-face {
-        font-family: 'BureauSans';
-        src: local('Bureau Sans'), local('Bureausans'), local('bureausans');
-      }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Интерактив: Образец</title>
+<style>
+  @font-face {
+    font-family: 'bureauserif';
+    src: local('BureauSerif'), local('bureauserif');
+  }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        outline: none;
-        -webkit-tap-highlight-color: transparent;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+  * {
+    box-sizing: border-box;
+  }
 
-      body {
-        background: transparent;
-        font-family: 'BureauSerif', 'Times New Roman', serif;
-      }
+  html, body {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+  }
 
-      .interactive {
-        position: relative;
-        display: inline-flex;
-        align-items: flex-start;
-        width: 100%;
-        background: transparent;
-        box-shadow: none;
-      }
+  body {
+    margin: 0;
+    font-family: 'bureauserif', serif;
+  }
 
-      /* --- Thumbnail (left) --- */
-      .thumb-wrap {
-        position: relative;
-        flex: 0 0 100pt;
-        width: 100pt;
-        cursor: pointer;
-        z-index: 1;
-      }
+  .interactive {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 10pt;
+    background: transparent;
+    box-shadow: none;
+  }
 
-      .thumb-img {
-        width: 100pt;
-        height: auto;
-        display: block;
-        border: none;
-        background: transparent;
-      }
+  .preview-img {
+    width: 100pt;
+    height: auto;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
 
-      /* --- Full image (hidden by default) --- */
-      .full-img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        display: none;
-        cursor: pointer;
-        z-index: 10;
-      }
+  .info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+  }
 
-      .expanded .full-img {
-        display: block;
-      }
+  .text1 {
+    font-size: 14pt;
+    color: #000;
+    margin: 0 0 4pt 0;
+  }
 
-      .expanded .thumb-img {
-        visibility: hidden;
-      }
+  .text2 {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #c94342;
+    margin: 0 0 4pt 0;
+  }
 
-      /* --- Text block (right) --- */
-      .text-block {
-        flex: 1 1 auto;
-        padding-left: 16pt;
-        padding-top: 0;
-      }
+  .line {
+    height: 2pt;
+    background-color: #c94342;
+    width: 100%;
+    margin-bottom: 8pt;
+  }
 
-      .label {
-        font-family: 'BureauSerif', 'Times New Roman', serif;
-        font-size: 14pt;
-        color: #000;
-        line-height: 1.2;
-        margin-bottom: 6pt;
-      }
+  .bottom-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
 
-      .title {
-        font-family: 'BureauSans', 'Arial', sans-serif;
-        font-size: 18pt;
-        color: #c94342;
-        line-height: 1.15;
-        margin-bottom: 8pt;
-        font-weight: normal;
-      }
+  .bottom-img {
+    width: 50pt;
+    height: auto;
+    margin-right: 10pt;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
 
-      .divider {
-        height: 2pt;
-        background-color: #c94342;
-        border: none;
-        margin-bottom: 8pt;
-        width: 100%;
-      }
+  .bottom-text {
+    font-size: 12pt;
+    color: #000;
+    margin: 0;
+  }
 
-      .hint-row {
-        display: flex;
-        align-items: center;
-        flex-wrap: nowrap;
-      }
+  .expanded-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    z-index: 99999;
+    cursor: pointer;
+    display: none;
+  }
 
-      .hint-img {
-        width: 50pt;
-        height: auto;
-        margin-right: 10pt;
-        flex: 0 0 50pt;
-        display: block;
-      }
+  .expanded-img.show {
+    display: block;
+  }
+</style>
+</head>
+<body>
 
-      .hint-text {
-        font-family: 'BureauSans', 'Arial', sans-serif;
-        font-size: 12pt;
-        color: #000;
-        line-height: 1.3;
-        flex: 1 1 auto;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="interactive" id="interactive">
-      <!-- Thumbnail -->
-      <div class="thumb-wrap" id="thumbWrap">
-        <img
-          src="https://e.profkiosk.ru/service_tbn2/9jbeo0gg0uqb.png"
-          alt="Образец"
-          class="thumb-img"
-          id="thumbImg"
-          draggable="false"
-        />
-        <img
-          src="https://e.profkiosk.ru/service_tbn2/9jbeo0gg0uqb.png"
-          alt="Образец"
-          class="full-img"
-          id="fullImg"
-          draggable="false"
-        />
-      </div>
+<div class="interactive">
+  <img class="preview-img"
+       src="https://e.profkiosk.ru/service_tbn2/9jbeo0gg0uqb.png"
+       alt="Образец"
+       onclick="expandImage()">
 
-      <!-- Text block -->
-      <div class="text-block">
-        <div class="label">Образец</div>
-        <div class="title">Как юристу защитить себя от личных рисков в банкротстве</div>
-        <hr class="divider" />
-        <div class="hint-row">
-          <img
-            src="https://e.profkiosk.ru/service_tbn2/gm29so.png"
-            alt=""
-            class="hint-img"
-            draggable="false"
-          />
-          <span class="hint-text">Нажмите на картинку слева, чтобы развернуть образец</span>
-        </div>
-      </div>
+  <div class="info">
+    <p class="text1">Образец</p>
+    <p class="text2">Как юристу защитить себя от личных рисков в банкротстве</p>
+    <div class="line"></div>
+    <div class="bottom-row">
+      <img class="bottom-img"
+           src="https://e.profkiosk.ru/service_tbn2/gm29so.png"
+           alt="Иконка"
+           onclick="expandImage()">
+      <p class="bottom-text">Нажмите на картинку, чтобы развернуть образец</p>
     </div>
+  </div>
+</div>
 
-    <script>
-      const interactive = document.getElementById('interactive');
-      const thumbWrap = document.getElementById('thumbWrap');
-      const thumbImg = document.getElementById('thumbImg');
-      const fullImg = document.getElementById('fullImg');
+<img class="expanded-img"
+     id="bigImage"
+     src="https://e.profkiosk.ru/service_tbn2/9jbeo0gg0uqb.png"
+     alt="Образец развёрнутый"
+     onclick="collapseImage()">
 
-      // Click thumbnail to expand
-      thumbWrap.addEventListener('click', function () {
-        interactive.classList.add('expanded');
-      });
+<script>
+  function expandImage() {
+    document.getElementById('bigImage').classList.add('show');
+  }
 
-      // Click full image to collapse
-      fullImg.addEventListener('click', function () {
-        interactive.classList.remove('expanded');
-      });
+  function collapseImage() {
+    document.getElementById('bigImage').classList.remove('show');
+  }
+</script>
 
-      // Prevent focus on any element
-      document.addEventListener('mousedown', function (e) {
-        e.preventDefault();
-      }, false);
-    </script>
-  </body>
+</body>
 </html>
