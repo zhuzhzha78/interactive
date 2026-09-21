@@ -3,79 +3,62 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Аудиоплеер</title>
 <style>
-@font-face {
-  font-family: 'Bureauserif';
-  src: url('https://db.onlinewebfonts.com/t/4ce3340699bbce8a0f4ae7c4269540c8.eot');
-  src: url('https://db.onlinewebfonts.com/t/4ce3340699bbce8a0f4ae7c4269540c8.eot?#iefix') format('embedded-opentype'),
-       url('https://db.onlinewebfonts.com/t/4ce3340699bbce8a0f4ae7c4269540c8.woff2') format('woff2'),
-       url('https://db.onlinewebfonts.com/t/4ce3340699bbce8a0f4ae7c4269540c8.woff') format('woff'),
-       url('https://db.onlinewebfonts.com/t/4ce3340699bbce8a0f4ae7c4269540c8.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body { height: 100%; }
-
-body {
-  margin: 0;
-  display: flex;
-  align-items: stretch;
-}
-
 .audio-player {
-  --h: 60px;
-  height: 30px;
+  font-family: 'BureauSerif', 'Bureau Serif', serif;
+  height: 30pt;
   width: 100%;
-  background-color: #a778b6;
   display: flex;
-  align-items: stretch;
-  font-family: 'Bureauserif', 'PT Serif', Georgia, serif;
-  font-size: 14pt;
-  position: top;
-  overflow: visible;
-  user-select: none;
+  align-items: center;
+  background: #a778b6;
+  position: relative;
+  /* выравнивание по верху слева внутри родителя */
+  align-self: flex-start;
+  justify-self: start;
 }
+
+.audio-player * { font-family: inherit; }
 
 /* --- Кнопки --- */
-.btn {
+.btn-play, .btn-volume {
   height: 100%;
-  width: var(--h);
-  background: transparent;
-  border: none;
-  cursor: pointer;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: white;
   padding: 0;
   position: relative;
 }
 
 .btn-play {
-  border-right: 1pt solid gray;
+  border-right: 1pt solid #888;
+  width: 28pt;
 }
 
 .btn-volume {
-  border-left: 1pt solid gray;
+  border-left: 1pt solid #888;
+  width: 28pt;
 }
 
-.btn svg {
-  width: calc(var(--h) * 0.2);
-  height: calc(var(--h) * 0.2);
+.btn-play svg, .btn-volume svg {
+  height: 45%;
+  width: 45%;
   fill: white;
-  pointer-events: none;
 }
 
-/* --- Центральная зона --- */
-.center {
+/* --- Центральная область --- */
+.main-area {
   flex: 1;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  align-self: stretch;
   overflow: hidden;
   min-width: 0;
 }
@@ -83,33 +66,42 @@ body {
 /* --- Верхняя половина --- */
 .top-half {
   height: 50%;
-  background-color: #bd9ac8;
+  background: #b086bd; /* на 10% светлее #a778b6 */
+  overflow: hidden;
   display: flex;
   align-items: center;
-  overflow: hidden;
   position: relative;
-  padding: 0 calc(var(--h) * 0.06);
 }
 
 .title-wrap {
   overflow: hidden;
+  white-space: nowrap;
   width: 100%;
-  position: relative;
+  padding: 0 5pt;
 }
 
-.title-text {
-  color: black;
+.title-scroll {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.title-scroll.marquee {
+  animation: marquee 18s linear infinite;
+}
+
+.title-copy {
   font-size: 12pt;
+  font-weight: bold;
+  color: black;
   white-space: nowrap;
   display: inline-block;
-  line-height: 1.2;
 }
 
-.title-text.marquee {
-  animation: scrollLeft 14s linear infinite;
+.title-scroll.marquee .title-copy {
+  padding-right: 30pt;
 }
 
-@keyframes scrollLeft {
+@keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
@@ -119,258 +111,215 @@ body {
   height: 50%;
   display: flex;
   align-items: center;
-  padding: 0 calc(var(--h) * 0.06);
-  gap: calc(var(--h) * 0.04);
-  overflow: hidden;
+  padding: 0 5pt;
+  gap: 5pt;
 }
 
-.timer {
-  color: white;
-  font-size: calc(var(--h) * 0.5);
-  white-space: nowrap;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.timeline {
+.progress-bar {
   flex: 1;
-  height: calc(var(--h) * 0.28);
-  background: white;
-  border-radius: 50%;
-  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  position: relative;
   min-width: 0;
 }
 
-.timeline-played {
-  height: 100%;
-  background-color: #7d5a89;
-  border-radius: 999px;
-  width: 0%;
-  pointer-events: none;
+.progress-track {
+  width: 100%;
+  height: 3pt;
+  background: white;          /* таймлайн остатка — белый */
+  position: relative;
+  border-radius: 1pt;
 }
 
-.timeline-thumb {
+.progress-filled {
+  height: 100%;
+  background: #7d5a89;         /* темнее основного на 25% */
+  width: 0%;
+  border-radius: 2pt;
+}
+
+.progress-thumb {
+  width: 7pt;
+  height: 7pt;
+  border-radius: 50%;
+  background: white;           /* круглый бегунок — белый */
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(var(--h) * 0.35);
-  height: calc(var(--h) * 0.35);
-  border-radius: 50%;
-  background: white;
-  pointer-events: none;
   left: 0%;
-  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-shadow: 0 0 1pt rgba(0,0,0,0.35);
 }
 
-/* --- Всплывающий регулятор громкости --- */
+.timer {
+  font-size: 9pt;
+  color: white;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* --- Popup громкости --- */
 .volume-popup {
-  position: absolute;
+  position: relative;
   bottom: 100%;
   right: 0;
-  width: calc(var(--h) * 2.5);
-  height: calc(var(--h) * 0.7);
-  background-color: #a778b6;
-  border: 1pt solid gray;
-  border-radius: 8px;
-  padding: calc(var(--h) * 0.08) calc(var(--h) * 0.12);
+  background: #a778b6;
+  padding: 5pt 6pt;
+  border-radius: 4pt 4pt 0 0;
   display: none;
-  align-items: center;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  box-shadow: 0 -2pt 8pt rgba(0,0,0,0.3);
 }
 
-.volume-popup.show {
-  display: flex;
-}
+.volume-popup.show { display: block; }
 
-.volume-slider {
+.volume-popup input[type="range"] {
+  width: 70pt;
+  height: 4pt;
   -webkit-appearance: none;
   appearance: none;
-  width: 100%;
-  height: calc(var(--h) * 0.12);
-  border-radius: 999px;
   background: white;
+  border-radius: 2pt;
   outline: none;
+  cursor: pointer;
 }
 
-.volume-slider::-webkit-slider-thumb {
+.volume-popup input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: calc(var(--h) * 0.22);
-  height: calc(var(--h) * 0.22);
+  width: 8pt; height: 8pt;
   border-radius: 50%;
   background: white;
-  border: 2px solid #7d5a89;
   cursor: pointer;
 }
 
-.volume-slider::-moz-range-thumb {
-  width: calc(var(--h) * 0.22);
-  height: calc(var(--h) * 0.22);
+.volume-popup input[type="range"]::-moz-range-thumb {
+  width: 8pt; height: 8pt;
   border-radius: 50%;
   background: white;
-  border: 2px solid #7d5a89;
   cursor: pointer;
-}
-
-/* Для демонстрации — контейнер */
-.demo-wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  border: none;
 }
 </style>
 </head>
 <body>
-<div class="demo-wrapper">
-  <div class="audio-player" id="player">
-    <button class="btn btn-play" id="playBtn" aria-label="Воспроизведение / Пауза">
-      <svg id="playIcon" viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"></polygon></svg>
-      <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-    </button>
-    <div class="center">
-      <div class="top-half">
-        <div class="title-wrap" id="titleWrap">
-          <div class="title-text" id="titleText">Заголовок аудиозаписи Создай интерактив на чистом языке русском</div>
+
+<div class="audio-player" id="player">
+  <!-- Кнопка пуск/пауза -->
+  <button class="btn-play" id="playBtn" type="button">
+    <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>
+  </button>
+
+  <!-- Центральная область -->
+  <div class="main-area">
+    <div class="top-half">
+      <div class="title-wrap" id="titleWrap">
+        <div class="title-scroll" id="titleScroll">
+          <span class="title-copy">Заголовок аудиозаписи Создай интерактив на чистом языке русском</span><span class="title-copy" id="titleCopy2"></span>
         </div>
-      </div>
-      <div class="bottom-half">
-        <span class="timer" id="timerElapsed">00:00</span>
-        <div class="timeline" id="timeline">
-          <div class="timeline-played" id="timelinePlayed"></div>
-          <div class="timeline-thumb" id="timelineThumb"></div>
-        </div>
-        <span class="timer" id="timerTotal">00:00</span>
       </div>
     </div>
-    <button class="btn btn-volume" id="volumeBtn" aria-label="Громкость">
-      <svg id="volumeIcon" viewBox="0 0 24 24">
-        <path d="M3 9v6h4l5 5V4L7 9H3z"></path>
-        <path d="M14 8.5c1.2 1 1.2 6 0 7" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"></path>
-        <path d="M16.5 6c2.8 2 2.8 10 0 12" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"></path>
-      </svg>
-      <div class="volume-popup" id="volumePopup">
-        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="100">
+    <div class="bottom-half">
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-track">
+          <div class="progress-filled" id="progressFilled"></div>
+          <div class="progress-thumb" id="progressThumb"></div>
+        </div>
       </div>
-    </button>
+      <div class="timer" id="timer">0:00/0:00</div>
+    </div>
   </div>
+
+  <!-- Кнопка громкости -->
+  <button class="btn-volume" id="volumeBtn" type="button">
+    <svg id="volumeIcon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4-.91 7-4.49 7-8.77s-3-7.86-7-8.77z"/></svg>
+    <svg id="muteIcon" viewBox="0 0 24 24" style="display:none"><path d="M3 9v6h4l5 5V4L7 9H3z"/><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.02v8.05c1.48-.73 2.5-2.25 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71 0 .05-.01.1-.01.15l1.98 1.98c.02-.18.03-.37.03-.56 0-4.28-3-7.86-7-8.77z" opacity=".3"/><path d="M18.41 16.59L17 18l-2.59-2.59L12 18l-1.41-1.41L13.17 14l-2.58-2.59L12 10l2.59 2.59L17 10l1.41 1.41L15.83 14z"/></svg>
+    <div class="volume-popup" id="volumePopup">
+      <input type="range" id="volumeSlider" min="0" max="100" value="100">
+    </div>
+  </button>
 </div>
 
 <audio id="audio" src="https://zhuzhzha78.github.io/interactive/audio/mp3/UK1.mp3" preload="metadata" crossorigin="anonymous"></audio>
 
 <script>
 (function () {
-  'use strict';
+  var audio       = document.getElementById('audio');
+  var playBtn     = document.getElementById('playBtn');
+  var playIcon    = document.getElementById('playIcon');
+  var pauseIcon   = document.getElementById('pauseIcon');
+  var progressBar = document.getElementById('progressBar');
+  var progressFilled = document.getElementById('progressFilled');
+  var progressThumb  = document.getElementById('progressThumb');
+  var timer       = document.getElementById('timer');
+  var titleScroll = document.getElementById('titleScroll');
+  var titleCopy2  = document.getElementById('titleCopy2');
+  var titleWrap   = document.getElementById('titleWrap');
+  var volumeBtn   = document.getElementById('volumeBtn');
+  var volumePopup = document.getElementById('volumePopup');
+  var volumeSlider = document.getElementById('volumeSlider');
+  var volumeIcon  = document.getElementById('volumeIcon');
+  var muteIcon    = document.getElementById('muteIcon');
 
-  const audio         = document.getElementById('audio');
-  const player        = document.getElementById('player');
-  const playBtn       = document.getElementById('playBtn');
-  const playIcon      = document.getElementById('playIcon');
-  const pauseIcon     = document.getElementById('pauseIcon');
-  const volumeBtn     = document.getElementById('volumeBtn');
-  const volumePopup   = document.getElementById('volumePopup');
-  const volumeSlider  = document.getElementById('volumeSlider');
-  const volumeIcon    = document.getElementById('volumeIcon');
-  const timeline      = document.getElementById('timeline');
-  const timelinePlayed= document.getElementById('timelinePlayed');
-  const timelineThumb = document.getElementById('timelineThumb');
-  const timerElapsed  = document.getElementById('timerElapsed');
-  const timerTotal    = document.getElementById('timerTotal');
-  const titleText     = document.getElementById('titleText');
-  const titleWrap     = document.getElementById('titleWrap');
-
-  const TITLE = titleText.textContent;
-
-  /* --- Установка пропорциональных размеров через CSS-переменную --- */
-  function syncHeight() {
-    player.style.setProperty('--h', player.offsetHeight + 'px');
-    checkMarquee();
-  }
-
-  /* --- Форматирование времени mm:ss --- */
+  /* ---- Форматирование времени ---- */
   function fmt(sec) {
-    if (!isFinite(sec) || isNaN(sec)) return '00:00';
-    const m = Math.floor(sec / 60);
-    const s = Math.floor(sec % 60);
-    return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    if (isNaN(sec) || sec < 0) sec = 0;
+    var m = Math.floor(sec / 60);
+    var s = Math.floor(sec % 60);
+    return m + ':' + (s < 10 ? '0' + s : s);
   }
 
-  /* --- Проверка: нужна ли бегущая строка --- */
-  function checkMarquee() {
-    titleText.classList.remove('marquee');
-    titleText.textContent = TITLE;
-    requestAnimationFrame(function () {
-      if (titleText.scrollWidth > titleWrap.clientWidth) {
-        titleText.classList.add('marquee');
-        titleText.innerHTML = TITLE + '\u00A0\u00A0\u00A0\u00A0\u00A0' + TITLE + '\u00A0\u00A0\u00A0\u00A0\u00A0';
-      }
-    });
+  function updateTimer() {
+    timer.textContent = fmt(audio.currentTime) + '/' + fmt(audio.duration || 0);
   }
 
-  /* --- Воспроизведение / Пауза --- */
-  playBtn.addEventListener('click', function () {
-    if (audio.paused) {
-      audio.play().catch(function () {});
-    } else {
-      audio.pause();
+  function updateProgress() {
+    if (audio.duration) {
+      var pct = (audio.currentTime / audio.duration) * 100;
+      progressFilled.style.width = pct + '%';
+      progressThumb.style.left  = pct + '%';
     }
+    updateTimer();
+  }
+
+  /* ---- Play / Pause ---- */
+  playBtn.addEventListener('click', function () {
+    if (audio.paused) audio.play();
+    else audio.pause();
   });
 
   audio.addEventListener('play', function () {
-    playIcon.style.display = 'none';
+    playIcon.style.display  = 'none';
     pauseIcon.style.display = 'block';
   });
 
   audio.addEventListener('pause', function () {
-    playIcon.style.display = 'block';
+    playIcon.style.display  = 'block';
     pauseIcon.style.display = 'none';
   });
 
+  audio.addEventListener('timeupdate', updateProgress);
+  audio.addEventListener('loadedmetadata', updateProgress);
+  audio.addEventListener('durationchange', updateProgress);
   audio.addEventListener('ended', function () {
-    playIcon.style.display = 'block';
+    playIcon.style.display  = 'block';
     pauseIcon.style.display = 'none';
   });
 
-  /* --- Загрузка метаданных --- */
-  audio.addEventListener('loadedmetadata', function () {
-    if (audio.duration === Infinity || isNaN(audio.duration)) {
-      // обход для некоторых серверов
-      audio.currentTime = 1e101;
-      audio.addEventListener('timeupdate', function fix() {
-        audio.removeEventListener('timeupdate', fix);
-        audio.currentTime = 0;
-        timerTotal.textContent = fmt(audio.duration);
-      });
-    } else {
-      timerTotal.textContent = fmt(audio.duration);
-    }
-    checkMarquee();
-  });
-
-  /* --- Обновление прогресса --- */
-  audio.addEventListener('timeupdate', function () {
-    if (!isFinite(audio.duration) || audio.duration === 0) return;
-    const p = (audio.currentTime / audio.duration) * 100;
-    timelinePlayed.style.width = p + '%';
-    timelineThumb.style.left = p + '%';
-    timerElapsed.textContent = fmt(audio.currentTime);
-  });
-
-  /* --- Перемотка кликом / перетаскиванием --- */
-  let dragging = false;
+  /* ---- Перемотка ---- */
+  var dragging = false;
 
   function seek(clientX) {
-    const rect = timeline.getBoundingClientRect();
-    const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-    if (isFinite(audio.duration)) {
-      audio.currentTime = ratio * audio.duration;
-    }
+    var rect = progressBar.getBoundingClientRect();
+    var pct = (clientX - rect.left) / rect.width;
+    pct = Math.max(0, Math.min(1, pct));
+    if (audio.duration) audio.currentTime = pct * audio.duration;
   }
 
-  timeline.addEventListener('mousedown', function (e) {
+  progressBar.addEventListener('mousedown', function (e) {
     dragging = true;
     seek(e.clientX);
   });
@@ -381,65 +330,68 @@ body {
 
   document.addEventListener('mouseup', function () { dragging = false; });
 
-  timeline.addEventListener('touchstart', function (e) {
+  /* Touch */
+  progressBar.addEventListener('touchstart', function (e) {
     dragging = true;
     seek(e.touches[0].clientX);
-    e.preventDefault();
-  }, { passive: false });
+  }, { passive: true });
 
   document.addEventListener('touchmove', function (e) {
     if (dragging) seek(e.touches[0].clientX);
-  });
+  }, { passive: true });
 
   document.addEventListener('touchend', function () { dragging = false; });
 
-  /* --- Громкость --- */
+  /* ---- Громкость ---- */
   volumeBtn.addEventListener('click', function (e) {
-    if (e.target === volumeSlider || volumeSlider.contains(e.target)) return;
-    volumePopup.classList.toggle('show');
     e.stopPropagation();
+    volumePopup.classList.toggle('show');
   });
 
   document.addEventListener('click', function (e) {
-    if (!volumeBtn.contains(e.target)) {
+    if (!volumePopup.contains(e.target) && e.target !== volumeBtn) {
       volumePopup.classList.remove('show');
     }
   });
 
-  function updateVolumeIcon(v) {
-    if (v === 0) {
-      volumeIcon.innerHTML =
-        '<path d="M3 9v6h4l5 5V4L7 9H3z"></path>' +
-        '<line x1="15" y1="9" x2="21" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"></line>' +
-        '<line x1="21" y1="9" x2="15" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"></line>';
-    } else if (v < 0.5) {
-      volumeIcon.innerHTML =
-        '<path d="M3 9v6h4l5 5V4L7 9H3z"></path>' +
-        '<path d="M14 8.5c1.2 1 1.2 6 0 7" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"></path>';
+  volumeSlider.addEventListener('click', function (e) { e.stopPropagation(); });
+  volumeSlider.addEventListener('input', function () {
+    audio.volume = volumeSlider.value / 100;
+    if (audio.volume === 0) {
+      volumeIcon.style.display = 'none';
+      muteIcon.style.display   = 'block';
     } else {
-      volumeIcon.innerHTML =
-        '<path d="M3 9v6h4l5 5V4L7 9H3z"></path>' +
-        '<path d="M14 8.5c1.2 1 1.2 6 0 7" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"></path>' +
-        '<path d="M16.5 6c2.8 2 2.8 10 0 12" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"></path>';
+      volumeIcon.style.display = 'block';
+      muteIcon.style.display   = 'none';
+    }
+  });
+
+  /* ---- Бегущая строка ---- */
+  function checkMarquee() {
+    var firstSpan = titleScroll.querySelector('.title-copy');
+    var textWidth = firstSpan.scrollWidth;
+    var wrapWidth = titleWrap.clientWidth;
+    if (textWidth > wrapWidth) {
+      titleCopy2.textContent = firstSpan.textContent;
+      titleScroll.classList.add('marquee');
+    } else {
+      titleCopy2.textContent = '';
+      titleScroll.classList.remove('marquee');
     }
   }
 
-  volumeSlider.addEventListener('input', function () {
-    const v = volumeSlider.value / 100;
-    audio.volume = v;
-    updateVolumeIcon(v);
-  });
-
-  /* --- Инициализация --- */
-  window.addEventListener('load', syncHeight);
-  window.addEventListener('resize', syncHeight);
-  syncHeight();
-
-  // ResizeObserver для надёжного обновления при изменении родителя
-  if (window.ResizeObserver) {
-    new ResizeObserver(syncHeight).observe(player);
+  window.addEventListener('load', checkMarquee);
+  window.addEventListener('resize', checkMarquee);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(checkMarquee);
   }
+  setTimeout(checkMarquee, 50);
+  setTimeout(checkMarquee, 300);
+  setTimeout(checkMarquee, 1000);
+
+  updateTimer();
 })();
 </script>
+
 </body>
 </html>
