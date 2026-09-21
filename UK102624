@@ -49,14 +49,14 @@ html, body {
 .text2 {
   font-size: 18pt;
   font-weight: bold;
-  color: #c94342;
+  color: #1d69a6;
   margin-top: 2pt;
   line-height: 1.2;
 }
 
 .divider {
   height: 2pt;
-  background-color: #c94342;
+  background-color: #1d69a6;
   margin-top: 4pt;
   width: 100%;
 }
@@ -105,18 +105,18 @@ html, body {
 <body>
 
 <div class="interactive" id="interactive">
-  <img src="https://e.profkiosk.ru/service_tbn2/9jbeo0gg0uqb.png" class="thumbnail" id="thumbnail" alt="Памятка">
+  <img src="https://e.profkiosk.ru/service_tbn2/qzlw9bcut0i5.png" class="thumbnail" id="thumbnail" alt="Памятка">
   <div class="content">
-    <div class="text1">Памятка</div>
-    <div class="text2">Как юристу защитить себя от личных рисков в банкротстве</div>
+    <div class="text1">Чек-лист</div>
+    <div class="text2">Какие шаги необходимо совершить для&nbsp;перехода на&nbsp;оферту</div>
     <div class="divider"></div>
     <div class="bottom-row">
       <img src="https://e.profkiosk.ru/service_tbn2/gm29so.png" class="bottom-img" id="bottomImg" alt="Развернуть">
-      <div class="bottom-text">Нажмите на картинку, чтобы развернуть памятку</div>
+      <div class="bottom-text">Нажмите на&nbsp;картинку, чтобы развернуть чек-лист</div>
     </div>
   </div>
   <div class="overlay" id="overlay">
-    <img src="https://e.profkiosk.ru/service_tbn2/9jbeo0gg0uqb.png" id="fullImage" alt="Памятка">
+    <img src="https://e.profkiosk.ru/service_tbn2/qzlw9bcut0i5.png" id="fullImage" alt="Памятка">
   </div>
 </div>
 
