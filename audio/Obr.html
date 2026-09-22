@@ -21,38 +21,7 @@
 
 .audio-player * { font-family: inherit; }
 
-/* --- Кнопки --- */
-.btn-play, .btn-volume {
-  height: 100%;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  background: transparent; 
-  border: none;
-  color: white;
-  padding: 0;
-  position: relative;
-}
 
-.btn-play {
-  border-right: 1pt solid #7d5a89;
-  background: transparent;
-  width: 30pt;
-}
-
-.btn-volume {
-  border-left: 1pt solid #7d5a89;
-  background: transparent;
-  width: 30pt;
-}
-
-.btn-play svg, .btn-volume svg {
-  height: 75%;
-  width: 75%;
-  fill: white;
-}
 
 /* --- Центральная область --- */
 .main-area {
@@ -127,7 +96,7 @@
 }
 
 .progress-track {
-  width: 100%;
+  width: 95%;
   height: 2.5pt;
   background: white;          /* таймлайн остатка — белый */
   position: relative;
@@ -160,7 +129,38 @@
   white-space: nowrap;
   flex-shrink: 0;
 }
+/* --- Кнопки --- */
+.btn-play, .btn-volume {
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent; 
+  border: none;
+  color: white;
+  padding: 0;
+  position: relative;
+}
 
+.btn-play {
+  border-right: 1pt solid #7d5a89;
+  background: transparent;
+  width: 30pt;
+}
+
+.btn-volume {
+  border-left: 1pt solid #7d5a89;
+  background: transparent;
+  width: 30pt;
+}
+
+.btn-play svg, .btn-volume svg {
+  height: 75%;
+  width: 75%;
+  fill: white;
+}
 /* --- Popup громкости --- */
 .volume-popup {
   position: absolute;
