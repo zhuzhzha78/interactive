@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   background: #a778b6;
+  border-radius: 1pt;
   position: relative;
   /* выравнивание по верху слева внутри родителя */
   align-self: flex-start;
@@ -20,8 +21,6 @@
 }
 
 .audio-player * { font-family: inherit; }
-
-
 
 /* --- Центральная область --- */
 .main-area {
@@ -209,12 +208,10 @@
 
 <div class="audio-player" id="player">
   <!-- Кнопка пуск/пауза -->
-  <div class="top-half" class="bottom-half">
   <button class="btn-play" id="playBtn" type="button">
     <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
     <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>
   </button>
-  </div>
 
   <!-- Центральная область -->
   <div class="main-area">
@@ -237,7 +234,6 @@
   </div>
 
   <!-- Кнопка громкости -->
-  <div class="top-half" class="bottom-half">
   <button class="btn-volume" id="volumeBtn" type="button">
     <svg id="volumeIcon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4-.91 7-4.49 7-8.77s-3-7.86-7-8.77z"/></svg>
     <svg id="muteIcon" viewBox="0 0 24 24" style="display:none"><path d="M3 9v6h4l5 5V4L7 9H3z"/><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.02v8.05c1.48-.73 2.5-2.25 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71 0 .05-.01.1-.01.15l1.98 1.98c.02-.18.03-.37.03-.56 0-4.28-3-7.86-7-8.77z" opacity=".3"/><path d="M18.41 16.59L17 18l-2.59-2.59L12 18l-1.41-1.41L13.17 14l-2.58-2.59L12 10l2.59 2.59L17 10l1.41 1.41L15.83 14z"/></svg>
@@ -245,7 +241,6 @@
       <input type="range" id="volumeSlider" min="0" max="100" value="100">
     </div>
   </button>
-  </div>
 </div>
 
 <audio id="audio" src="./mp3/UK1.mp3" preload="metadata" crossorigin="anonymous"></audio>
