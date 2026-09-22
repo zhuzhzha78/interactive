@@ -572,7 +572,29 @@ function addMessage(item) {
 }
 
 
+/* Показываем три точки перед ответом перевозчика */
 
+function showTyping(callback) {
+
+  const typing = document.createElement("div");
+
+  typing.className = "typing";
+  typing.setAttribute("aria-label", "Ответ");
+
+  typing.innerHTML =
+    "<span></span><span></span><span></span>";
+
+  chat.appendChild(typing);
+
+  setTimeout(() => {
+
+    typing.remove();
+
+    callback();
+
+  }, 650);
+
+}
 
 
 /* Показываем следующее сообщение */
