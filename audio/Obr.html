@@ -20,7 +20,15 @@
 }
 
 .audio-player * { font-family: inherit; }
-
+/* --- Верхняя половина --- */
+.top-half {
+  height: 50%;
+  background: #b086bd; /* на 10% светлее #a778b6 */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
 /* --- Кнопки --- */
 .btn-play, .btn-volume {
   height: 100%;
@@ -29,7 +37,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
+  background: transparent; 
   border: none;
   color: white;
   padding: 0;
@@ -37,12 +45,12 @@
 }
 
 .btn-play {
-  border-right: 1pt solid #888;
+  border-right: 1pt solid #b086bd;
   width: 28pt;
 }
 
 .btn-volume {
-  border-left: 1pt solid #888;
+  border-left: 1pt solid #b086bd;
   width: 28pt;
 }
 
@@ -63,15 +71,7 @@
   min-width: 0;
 }
 
-/* --- Верхняя половина --- */
-.top-half {
-  height: 50%;
-  background: #b086bd; /* на 10% светлее #a778b6 */
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
+
 
 .title-wrap {
   overflow: hidden;
