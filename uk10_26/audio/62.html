@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.audio-player {
+  font-family: 'bureausans', 'bureausans', serif;
+  height: 30pt;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #a778b6;
+  border-radius: 5pt;
+  position: relative;
+  /* выравнивание по верху слева внутри родителя */
+  align-self: flex-start;
+  justify-self: start;
+}
+
+.audio-player * { font-family: inherit; }
+
+/* --- Центральная область --- */
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-self: stretch;
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* --- Верхняя половина --- */
+.top-half {
+  height: 50%;
+  border-bottom: 1pt solid #7d5a89;
+  background: #b086bd; /*  на 10% светлее #a778b6 */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.title-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  padding: 0 5pt;
+}
+
+.title-scroll {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.title-scroll.marquee {
+  animation: marquee 18s linear infinite;
+}
+
+.title-copy {
+  font-size: 12.5pt;
+  color: #7d5a89;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.title-scroll.marquee .title-copy {
+  padding-right: 30pt;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- Нижняя половина --- */
+.bottom-half {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  padding: 0 5pt;
+  gap: 5pt;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  min-width: 0;
+}
+
+.progress-track {
+  width: 100%;
+  height: 2.5pt;
+  background: white;          /* таймлайн остатка — белый */
+  position: relative;
+  border-radius: 1pt;
+}
+
+.progress-filled {
+  height: 100%;
+  background: #7d5a89;         /* темнее основного на 25% */
+  width: 0%;
+  border-radius: 1pt;
+}
+
+.progress-thumb {
+  width: 7pt;
+  height: 7pt;
+  border-radius: 50%;
+  background: white;           /* круглый бегунок — белый */
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-shadow: 0 0 1pt rgba(0,0,0,0.35);
+}
+
+.timer {
+  font-size: 9pt;
+  color: white;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+/* --- Кнопки --- */
+.btn-play, .btn-volume {
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent; 
+  border: none;
+  color: white;
+  padding: 0;
+  position: relative;
+}
+
+.btn-play {
+  border-right: 1pt solid #7d5a89;
+  background: transparent;
+  width: 30pt;
+}
+
+.btn-volume {
+  border-left: 1pt solid #7d5a89;
+  background: transparent;
+  width: 30pt;
+}
+
+.btn-play svg, .btn-volume svg {
+  height: 75%;
+  width: 75%;
+  fill: white;
+}
+/* --- Popup громкости --- */
+.volume-popup {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #a778b6;
+  padding: 5pt 6pt;
+  border-radius: 4pt 4pt 0 0;
+  display: none;
+  z-index: 100;
+  box-shadow: 0 -2pt 8pt rgba(0,0,0,0.3);
+}
+
+.volume-popup.show { display: block; }
+
+.volume-popup input[type="range"] {
+  width: 70pt;
+  height: 4pt;
+  -webkit-appearance: none;
+  appearance: none;
+  background: white;
+  border-radius: 2pt;
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-popup input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8pt; height: 8pt;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+.volume-popup input[type="range"]::-moz-range-thumb {
+  width: 8pt; height: 8pt;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: none;
+}
+</style>
+</head>
+<body>
+
+<div class="audio-player" id="player">
+  <!-- Кнопка пуск/пауза -->
+  <button class="btn-play" id="playBtn" type="button">
+    <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none"><path d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>
+  </button>
+
+  <!-- Центральная область -->
+  <div class="main-area">
+    <div class="top-half">
+      <div class="title-wrap" id="titleWrap">
+        <div class="title-scroll" id="titleScroll">
+          <span class="title-copy">Пример записи разговора голосового сообщения, которая помогла подтвердить договоренности</span><span class="title-copy" id="titleCopy2"></span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-half">
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-track">
+          <div class="progress-filled" id="progressFilled"></div>
+          <div class="progress-thumb" id="progressThumb"></div>
+        </div>
+      </div>
+      <div class="timer" id="timer">0:00/0:00</div>
+    </div>
+  </div>
+
+  <!-- Кнопка громкости -->
+  <button class="btn-volume" id="volumeBtn" type="button">
+    <svg id="volumeIcon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4-.91 7-4.49 7-8.77s-3-7.86-7-8.77z"/></svg>
+    <svg id="muteIcon" viewBox="0 0 24 24" style="display:none"><path d="M3 9v6h4l5 5V4L7 9H3z"/><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.02v8.05c1.48-.73 2.5-2.25 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71 0 .05-.01.1-.01.15l1.98 1.98c.02-.18.03-.37.03-.56 0-4.28-3-7.86-7-8.77z" opacity=".3"/><path d="M18.41 16.59L17 18l-2.59-2.59L12 18l-1.41-1.41L13.17 14l-2.58-2.59L12 10l2.59 2.59L17 10l1.41 1.41L15.83 14z"/></svg>
+    <div class="volume-popup" id="volumePopup">
+      <input type="range" id="volumeSlider" min="0" max="100" value="100">
+    </div>
+  </button>
+</div>
+
+<audio id="audio" src="./62.mp3" preload="metadata" crossorigin="anonymous"></audio>
+
+<script>
+(function () {
+  var audio       = document.getElementById('audio');
+  var playBtn     = document.getElementById('playBtn');
+  var playIcon    = document.getElementById('playIcon');
+  var pauseIcon   = document.getElementById('pauseIcon');
+  var progressBar = document.getElementById('progressBar');
+  var progressFilled = document.getElementById('progressFilled');
+  var progressThumb  = document.getElementById('progressThumb');
+  var timer       = document.getElementById('timer');
+  var titleScroll = document.getElementById('titleScroll');
+  var titleCopy2  = document.getElementById('titleCopy2');
+  var titleWrap   = document.getElementById('titleWrap');
+  var volumeBtn   = document.getElementById('volumeBtn');
+  var volumePopup = document.getElementById('volumePopup');
+  var volumeSlider = document.getElementById('volumeSlider');
+  var volumeIcon  = document.getElementById('volumeIcon');
+  var muteIcon    = document.getElementById('muteIcon');
+
+  /* ---- Форматирование времени ---- */
+  function fmt(sec) {
+    if (isNaN(sec) || sec < 0) sec = 0;
+    var m = Math.floor(sec / 60);
+    var s = Math.floor(sec % 60);
+    return m + ':' + (s < 10 ? '0' + s : s);
+  }
+
+  function updateTimer() {
+    timer.textContent = fmt(audio.currentTime) + '/' + fmt(audio.duration || 0);
+  }
+
+  function updateProgress() {
+    if (audio.duration) {
+      var pct = (audio.currentTime / audio.duration) * 100;
+      progressFilled.style.width = pct + '%';
+      progressThumb.style.left  = pct + '%';
+    }
+    updateTimer();
+  }
+
+  /* ---- Play / Pause ---- */
+  playBtn.addEventListener('click', function () {
+    if (audio.paused) audio.play();
+    else audio.pause();
+  });
+
+  audio.addEventListener('play', function () {
+    playIcon.style.display  = 'none';
+    pauseIcon.style.display = 'block';
+  });
+
+  audio.addEventListener('pause', function () {
+    playIcon.style.display  = 'block';
+    pauseIcon.style.display = 'none';
+  });
+
+  audio.addEventListener('timeupdate', updateProgress);
+  audio.addEventListener('loadedmetadata', updateProgress);
+  audio.addEventListener('durationchange', updateProgress);
+  audio.addEventListener('ended', function () {
+    playIcon.style.display  = 'block';
+    pauseIcon.style.display = 'none';
+  });
+
+  /* ---- Перемотка ---- */
+  var dragging = false;
+
+  function seek(clientX) {
+    var rect = progressBar.getBoundingClientRect();
+    var pct = (clientX - rect.left) / rect.width;
+    pct = Math.max(0, Math.min(1, pct));
+    if (audio.duration) audio.currentTime = pct * audio.duration;
+  }
+
+  progressBar.addEventListener('mousedown', function (e) {
+    dragging = true;
+    seek(e.clientX);
+  });
+
+  document.addEventListener('mousemove', function (e) {
+    if (dragging) seek(e.clientX);
+  });
+
+  document.addEventListener('mouseup', function () { dragging = false; });
+
+  /* Touch */
+  progressBar.addEventListener('touchstart', function (e) {
+    dragging = true;
+    seek(e.touches[0].clientX);
+  }, { passive: true });
+
+  document.addEventListener('touchmove', function (e) {
+    if (dragging) seek(e.touches[0].clientX);
+  }, { passive: true });
+
+  document.addEventListener('touchend', function () { dragging = false; });
+
+  /* ---- Громкость ---- */
+  volumeBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    volumePopup.classList.toggle('show');
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!volumePopup.contains(e.target) && e.target !== volumeBtn) {
+      volumePopup.classList.remove('show');
+    }
+  });
+
+  volumeSlider.addEventListener('click', function (e) { e.stopPropagation(); });
+  volumeSlider.addEventListener('input', function () {
+    audio.volume = volumeSlider.value / 100;
+    if (audio.volume === 0) {
+      volumeIcon.style.display = 'none';
+      muteIcon.style.display   = 'block';
+    } else {
+      volumeIcon.style.display = 'block';
+      muteIcon.style.display   = 'none';
+    }
+  });
+
+  /* ---- Бегущая строка ---- */
+  function checkMarquee() {
+    var firstSpan = titleScroll.querySelector('.title-copy');
+    var textWidth = firstSpan.scrollWidth;
+    var wrapWidth = titleWrap.clientWidth;
+    if (textWidth > wrapWidth) {
+      titleCopy2.textContent = firstSpan.textContent;
+      titleScroll.classList.add('marquee');
+    } else {
+      titleCopy2.textContent = '';
+      titleScroll.classList.remove('marquee');
+    }
+  }
+
+  window.addEventListener('load', checkMarquee);
+  window.addEventListener('resize', checkMarquee);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(checkMarquee);
+  }
+  setTimeout(checkMarquee, 50);
+  setTimeout(checkMarquee, 300);
+  setTimeout(checkMarquee, 1000);
+
+  updateTimer();
+})();
+</script>
+
+</body>
+</html>
