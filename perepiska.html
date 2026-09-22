@@ -230,7 +230,7 @@ h1 {
 
 <body>
 
-<main class="chat-widget">
+<section  class="chat-widget">
 
   <h1>Как может выглядеть переписка в&nbsp;мессенджере</h1>
 
@@ -249,162 +249,9 @@ h1 {
     </button>
   </div>
 
-</main>
-
-<script>
-
-const messages = [
-
-  {
-    role: "Клиент:",
-    side: "client",
-    text: "Екатерина, добрый день! Нужна машина 8 тонн на 14 часов 21 февраля. Повезем стройматериалы. Сможете предоставить?"
-  },
-
-  {
-    role: "Перевозчик:",
-    side: "carrier",
-    text: "Добрый день! Правильно я понимаю, что вы представляете интересы ООО «Ромашка» и хотите оставить заявку на перевозку по Договору №12 от 12.01.2026? На какой адрес необходимо обеспечить подачу транспорта и на какой адрес доставить товар?"
-  },
-
-  {
-    role: "Клиент:",
-    side: "client",
-    text: "Да, все верно! Адрес подачи: г. Москва, улица Новая, 17. Вас встретит представитель нашей компании и обеспечит погрузку товара. Отвезти товар нужно по адресу: г. Москва, улица Старая, 27, там товар встретят и разгрузят."
-  },
-
-  {
-    role: "Перевозчик:",
-    side: "carrier",
-    text: "Ок, доставка будет стоить 21 тысячу рублей исходя из тарифа, указанного в п. 4 Договора. Оплату в размере 50% ждем до 15 февраля, остальная часть до 25 февраля."
-  },
-
-  {
-    role: "Клиент:",
-    side: "client",
-    text: "Да, хорошо. Оплату произведем в указанный вами срок."
-  }
-
-];
-
-const chat = document.getElementById("chat");
-const next = document.getElementById("next");
-
-let index = 0;
-let busy = false;
+</section >
 
 
-/* Добавляем сообщение */
-
-function addMessage(item) {
-
-  const wrap = document.createElement("div");
-  wrap.className = "message " + item.side;
-
-  const role = document.createElement("div");
-  role.className = "role";
-  role.textContent = item.role;
-
-  const bubble = document.createElement("div");
-  bubble.className = "bubble";
-  bubble.textContent = item.text;
-
-  wrap.append(role, bubble);
-
-  chat.appendChild(wrap);
-
-  wrap.scrollIntoView({
-    behavior: "smooth",
-    block: "nearest"
-  });
-
-}
-
-
-/* Показываем три точки перед ответом перевозчика */
-
-function showTyping(callback) {
-
-  const typing = document.createElement("div");
-
-  typing.className = "typing";
-  typing.setAttribute("aria-label", "Ответ");
-
-  typing.innerHTML =
-    "<span></span><span></span><span></span>";
-
-  chat.appendChild(typing);
-
-  setTimeout(() => {
-
-    typing.remove();
-
-    callback();
-
-  }, 650);
-
-}
-
-
-/* Показываем следующее сообщение */
-
-function advance() {
-
-  if (busy || index >= messages.length) {
-    return;
-  }
-
-  busy = true;
-  next.disabled = true;
-
-  const item = messages[index];
-
-  const finish = () => {
-
-    addMessage(item);
-
-    index++;
-
-    busy = false;
-
-    if (index < messages.length) {
-
-      next.disabled = false;
-      next.textContent = "Далее";
-
-    } else {
-
-      next.textContent = "Переписка завершена";
-      next.disabled = true;
-
-    }
-
-  };
-
-
-  if (index > 0 && item.side === "carrier") {
-
-    showTyping(finish);
-
-  } else {
-
-    finish();
-
-  }
-
-}
-
-
-/* Нажатие на кнопку */
-
-next.addEventListener("click", advance);
-
-
-/* Первое сообщение появляется сразу */
-
-advance();
-
-</script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script type="text/javascript">
 	
