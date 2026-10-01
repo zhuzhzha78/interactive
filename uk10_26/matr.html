@@ -1,3 +1,774 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Проверка договора поставки</title>
 
-<!-- saved from url=(0040)https://mi6shka.github.io/matr/matr.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="color-scheme" content="light dark"></head><body><div class="line-gutter-backdrop"></div><form autocomplete="off"><label class="line-wrap-control">Переносить строки<input type="checkbox" aria-label="Переносить строки"></label></form><div class="source-container"><table><tbody><tr><td class="line-number" value="1"></td><td class="line-content"><span class="html-doctype">&lt;!doctype html&gt;</span></td></tr><tr><td class="line-number" value="2"></td><td class="line-content"><span class="html-tag">&lt;html <span class="html-attribute-name">lang</span>="<span class="html-attribute-value">ru</span>"&gt;</span></td></tr><tr><td class="line-number" value="3"></td><td class="line-content"><span class="html-tag">&lt;head&gt;</span></td></tr><tr><td class="line-number" value="4"></td><td class="line-content"><span class="html-tag">&lt;meta <span class="html-attribute-name">charset</span>="<span class="html-attribute-value">utf-8</span>"&gt;</span></td></tr><tr><td class="line-number" value="5"></td><td class="line-content"><span class="html-tag">&lt;meta <span class="html-attribute-name">name</span>="<span class="html-attribute-value">viewport</span>" <span class="html-attribute-name">content</span>="<span class="html-attribute-value">width=device-width,initial-scale=1</span>"&gt;</span></td></tr><tr><td class="line-number" value="6"></td><td class="line-content"><span class="html-tag">&lt;title&gt;</span>Проверка договора поставки<span class="html-tag">&lt;/title&gt;</span></td></tr><tr><td class="line-number" value="7"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="8"></td><td class="line-content"><span class="html-tag">&lt;style&gt;</span></td></tr><tr><td class="line-number" value="9"></td><td class="line-content">:root {</td></tr><tr><td class="line-number" value="10"></td><td class="line-content">  --brand:#A8A3FF;</td></tr><tr><td class="line-number" value="11"></td><td class="line-content">  --soft:#F3F1FF;</td></tr><tr><td class="line-number" value="12"></td><td class="line-content">  --gold:#C3A052;</td></tr><tr><td class="line-number" value="13"></td><td class="line-content">  --ink:#292833;</td></tr><tr><td class="line-number" value="14"></td><td class="line-content">  --muted:#74727C;</td></tr><tr><td class="line-number" value="15"></td><td class="line-content">  --line:#E5E3EA;</td></tr><tr><td class="line-number" value="16"></td><td class="line-content">  --white:#fff;</td></tr><tr><td class="line-number" value="17"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="18"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="19"></td><td class="line-content">* {</td></tr><tr><td class="line-number" value="20"></td><td class="line-content">  box-sizing:border-box;</td></tr><tr><td class="line-number" value="21"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="22"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="23"></td><td class="line-content">body {</td></tr><tr><td class="line-number" value="24"></td><td class="line-content">  margin:0;</td></tr><tr><td class="line-number" value="25"></td><td class="line-content">  font-family:Arial,sans-serif;</td></tr><tr><td class="line-number" value="26"></td><td class="line-content">  color:var(--ink);</td></tr><tr><td class="line-number" value="27"></td><td class="line-content">  background:#fff;</td></tr><tr><td class="line-number" value="28"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="29"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="30"></td><td class="line-content">.wrap {</td></tr><tr><td class="line-number" value="31"></td><td class="line-content">  max-width:760px;</td></tr><tr><td class="line-number" value="32"></td><td class="line-content">  margin:48px auto;</td></tr><tr><td class="line-number" value="33"></td><td class="line-content">  padding:0 20px;</td></tr><tr><td class="line-number" value="34"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="35"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="36"></td><td class="line-content">.eyebrow {</td></tr><tr><td class="line-number" value="37"></td><td class="line-content">  color:var(--gold);</td></tr><tr><td class="line-number" value="38"></td><td class="line-content">  font-size:14px;</td></tr><tr><td class="line-number" value="39"></td><td class="line-content">  font-weight:700;</td></tr><tr><td class="line-number" value="40"></td><td class="line-content">  margin:0 0 8px;</td></tr><tr><td class="line-number" value="41"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="42"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="43"></td><td class="line-content">h1 {</td></tr><tr><td class="line-number" value="44"></td><td class="line-content">  font-size:32px;</td></tr><tr><td class="line-number" value="45"></td><td class="line-content">  line-height:1.15;</td></tr><tr><td class="line-number" value="46"></td><td class="line-content">  margin:0 0 12px;</td></tr><tr><td class="line-number" value="47"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="48"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="49"></td><td class="line-content">p {</td></tr><tr><td class="line-number" value="50"></td><td class="line-content">  line-height:1.55;</td></tr><tr><td class="line-number" value="51"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="52"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="53"></td><td class="line-content">.muted {</td></tr><tr><td class="line-number" value="54"></td><td class="line-content">  color:var(--muted);</td></tr><tr><td class="line-number" value="55"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="56"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="57"></td><td class="line-content">.grid {</td></tr><tr><td class="line-number" value="58"></td><td class="line-content">  display:grid;</td></tr><tr><td class="line-number" value="59"></td><td class="line-content">  grid-template-columns:1fr 1fr;</td></tr><tr><td class="line-number" value="60"></td><td class="line-content">  gap:12px;</td></tr><tr><td class="line-number" value="61"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="62"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="63"></td><td class="line-content">.btn {</td></tr><tr><td class="line-number" value="64"></td><td class="line-content">  width:100%;</td></tr><tr><td class="line-number" value="65"></td><td class="line-content">  min-height:52px;</td></tr><tr><td class="line-number" value="66"></td><td class="line-content">  padding:13px 16px;</td></tr><tr><td class="line-number" value="67"></td><td class="line-content">  border:1px solid var(--line);</td></tr><tr><td class="line-number" value="68"></td><td class="line-content">  border-radius:12px;</td></tr><tr><td class="line-number" value="69"></td><td class="line-content">  background:#fff;</td></tr><tr><td class="line-number" value="70"></td><td class="line-content">  color:var(--ink);</td></tr><tr><td class="line-number" value="71"></td><td class="line-content">  font:inherit;</td></tr><tr><td class="line-number" value="72"></td><td class="line-content">  font-weight:700;</td></tr><tr><td class="line-number" value="73"></td><td class="line-content">  text-align:left;</td></tr><tr><td class="line-number" value="74"></td><td class="line-content">  cursor:pointer;</td></tr><tr><td class="line-number" value="75"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="76"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="77"></td><td class="line-content">.btn:hover,</td></tr><tr><td class="line-number" value="78"></td><td class="line-content">.btn:focus {</td></tr><tr><td class="line-number" value="79"></td><td class="line-content">  background:var(--soft);</td></tr><tr><td class="line-number" value="80"></td><td class="line-content">  border-color:var(--brand);</td></tr><tr><td class="line-number" value="81"></td><td class="line-content">  outline:none;</td></tr><tr><td class="line-number" value="82"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="83"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="84"></td><td class="line-content">.primary {</td></tr><tr><td class="line-number" value="85"></td><td class="line-content">  width:auto;</td></tr><tr><td class="line-number" value="86"></td><td class="line-content">  background:var(--brand);</td></tr><tr><td class="line-number" value="87"></td><td class="line-content">  border:0;</td></tr><tr><td class="line-number" value="88"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="89"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="90"></td><td class="line-content">.card {</td></tr><tr><td class="line-number" value="91"></td><td class="line-content">  border:1px solid var(--line);</td></tr><tr><td class="line-number" value="92"></td><td class="line-content">  border-radius:16px;</td></tr><tr><td class="line-number" value="93"></td><td class="line-content">  padding:24px;</td></tr><tr><td class="line-number" value="94"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="95"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="96"></td><td class="line-content">.progress {</td></tr><tr><td class="line-number" value="97"></td><td class="line-content">  height:8px;</td></tr><tr><td class="line-number" value="98"></td><td class="line-content">  background:var(--soft);</td></tr><tr><td class="line-number" value="99"></td><td class="line-content">  border-radius:20px;</td></tr><tr><td class="line-number" value="100"></td><td class="line-content">  overflow:hidden;</td></tr><tr><td class="line-number" value="101"></td><td class="line-content">  margin:12px 0 22px;</td></tr><tr><td class="line-number" value="102"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="103"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="104"></td><td class="line-content">.progress &gt; div {</td></tr><tr><td class="line-number" value="105"></td><td class="line-content">  height:100%;</td></tr><tr><td class="line-number" value="106"></td><td class="line-content">  background:var(--brand);</td></tr><tr><td class="line-number" value="107"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="108"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="109"></td><td class="line-content">.top {</td></tr><tr><td class="line-number" value="110"></td><td class="line-content">  display:flex;</td></tr><tr><td class="line-number" value="111"></td><td class="line-content">  justify-content:space-between;</td></tr><tr><td class="line-number" value="112"></td><td class="line-content">  gap:12px;</td></tr><tr><td class="line-number" value="113"></td><td class="line-content">  color:var(--muted);</td></tr><tr><td class="line-number" value="114"></td><td class="line-content">  font-size:14px;</td></tr><tr><td class="line-number" value="115"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="116"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="117"></td><td class="line-content">.linkbtn {</td></tr><tr><td class="line-number" value="118"></td><td class="line-content">  border:0;</td></tr><tr><td class="line-number" value="119"></td><td class="line-content">  background:none;</td></tr><tr><td class="line-number" value="120"></td><td class="line-content">  color:var(--muted);</td></tr><tr><td class="line-number" value="121"></td><td class="line-content">  text-decoration:underline;</td></tr><tr><td class="line-number" value="122"></td><td class="line-content">  cursor:pointer;</td></tr><tr><td class="line-number" value="123"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="124"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="125"></td><td class="line-content">.hidden {</td></tr><tr><td class="line-number" value="126"></td><td class="line-content">  display:none;</td></tr><tr><td class="line-number" value="127"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="128"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="129"></td><td class="line-content">.result {</td></tr><tr><td class="line-number" value="130"></td><td class="line-content">  border:1px solid var(--line);</td></tr><tr><td class="line-number" value="131"></td><td class="line-content">  border-radius:16px;</td></tr><tr><td class="line-number" value="132"></td><td class="line-content">  padding:20px;</td></tr><tr><td class="line-number" value="133"></td><td class="line-content">  margin:14px 0;</td></tr><tr><td class="line-number" value="134"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="135"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="136"></td><td class="line-content">.result-head {</td></tr><tr><td class="line-number" value="137"></td><td class="line-content">  display:flex;</td></tr><tr><td class="line-number" value="138"></td><td class="line-content">  align-items:center;</td></tr><tr><td class="line-number" value="139"></td><td class="line-content">  gap:10px;</td></tr><tr><td class="line-number" value="140"></td><td class="line-content">  flex-wrap:wrap;</td></tr><tr><td class="line-number" value="141"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="142"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="143"></td><td class="line-content">.badge {</td></tr><tr><td class="line-number" value="144"></td><td class="line-content">  font-size:12px;</td></tr><tr><td class="line-number" value="145"></td><td class="line-content">  font-weight:700;</td></tr><tr><td class="line-number" value="146"></td><td class="line-content">  padding:5px 9px;</td></tr><tr><td class="line-number" value="147"></td><td class="line-content">  border-radius:99px;</td></tr><tr><td class="line-number" value="148"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="149"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="150"></td><td class="line-content">.high {</td></tr><tr><td class="line-number" value="151"></td><td class="line-content">  background:#fbf7ec;</td></tr><tr><td class="line-number" value="152"></td><td class="line-content">  color:#80661f;</td></tr><tr><td class="line-number" value="153"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="154"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="155"></td><td class="line-content">.medium {</td></tr><tr><td class="line-number" value="156"></td><td class="line-content">  background:var(--soft);</td></tr><tr><td class="line-number" value="157"></td><td class="line-content">  color:#655f8f;</td></tr><tr><td class="line-number" value="158"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="159"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="160"></td><td class="line-content">.answer-block {</td></tr><tr><td class="line-number" value="161"></td><td class="line-content">  margin-top:18px;</td></tr><tr><td class="line-number" value="162"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="163"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="164"></td><td class="line-content">.answer-label {</td></tr><tr><td class="line-number" value="165"></td><td class="line-content">  margin-bottom:4px;</td></tr><tr><td class="line-number" value="166"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="167"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="168"></td><td class="line-content">.answer-block p:last-child {</td></tr><tr><td class="line-number" value="169"></td><td class="line-content">  margin-top:0;</td></tr><tr><td class="line-number" value="170"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="171"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="172"></td><td class="line-content">.practice {</td></tr><tr><td class="line-number" value="173"></td><td class="line-content">  background:#fcfaf4;</td></tr><tr><td class="line-number" value="174"></td><td class="line-content">  border-left:3px solid var(--gold);</td></tr><tr><td class="line-number" value="175"></td><td class="line-content">  padding:14px 16px;</td></tr><tr><td class="line-number" value="176"></td><td class="line-content">  border-radius:8px;</td></tr><tr><td class="line-number" value="177"></td><td class="line-content">  margin-top:16px;</td></tr><tr><td class="line-number" value="178"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="179"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="180"></td><td class="line-content">.practice-title {</td></tr><tr><td class="line-number" value="181"></td><td class="line-content">  color:var(--gold);</td></tr><tr><td class="line-number" value="182"></td><td class="line-content">  font-weight:700;</td></tr><tr><td class="line-number" value="183"></td><td class="line-content">  margin-bottom:6px;</td></tr><tr><td class="line-number" value="184"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="185"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="186"></td><td class="line-content">.court {</td></tr><tr><td class="line-number" value="187"></td><td class="line-content">  font-weight:700;</td></tr><tr><td class="line-number" value="188"></td><td class="line-content">  margin-top:9px;</td></tr><tr><td class="line-number" value="189"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="190"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="191"></td><td class="line-content">.good {</td></tr><tr><td class="line-number" value="192"></td><td class="line-content">  background:var(--soft);</td></tr><tr><td class="line-number" value="193"></td><td class="line-content">  border:1px solid var(--line);</td></tr><tr><td class="line-number" value="194"></td><td class="line-content">  border-radius:14px;</td></tr><tr><td class="line-number" value="195"></td><td class="line-content">  padding:16px;</td></tr><tr><td class="line-number" value="196"></td><td class="line-content">  margin:18px 0;</td></tr><tr><td class="line-number" value="197"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="198"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="199"></td><td class="line-content">@media(max-width:560px) {</td></tr><tr><td class="line-number" value="200"></td><td class="line-content">  .wrap {</td></tr><tr><td class="line-number" value="201"></td><td class="line-content">    margin:28px auto;</td></tr><tr><td class="line-number" value="202"></td><td class="line-content">  }</td></tr><tr><td class="line-number" value="203"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="204"></td><td class="line-content">  .grid {</td></tr><tr><td class="line-number" value="205"></td><td class="line-content">    grid-template-columns:1fr;</td></tr><tr><td class="line-number" value="206"></td><td class="line-content">  }</td></tr><tr><td class="line-number" value="207"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="208"></td><td class="line-content">  h1 {</td></tr><tr><td class="line-number" value="209"></td><td class="line-content">    font-size:27px;</td></tr><tr><td class="line-number" value="210"></td><td class="line-content">  }</td></tr><tr><td class="line-number" value="211"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="212"></td><td class="line-content">  .card {</td></tr><tr><td class="line-number" value="213"></td><td class="line-content">    padding:18px;</td></tr><tr><td class="line-number" value="214"></td><td class="line-content">  }</td></tr><tr><td class="line-number" value="215"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="216"></td><td class="line-content"><span class="html-tag">&lt;/style&gt;</span></td></tr><tr><td class="line-number" value="217"></td><td class="line-content"><span class="html-tag">&lt;/head&gt;</span></td></tr><tr><td class="line-number" value="218"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="219"></td><td class="line-content"><span class="html-tag">&lt;body&gt;</span></td></tr><tr><td class="line-number" value="220"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="221"></td><td class="line-content"><span class="html-tag">&lt;main <span class="html-attribute-name">class</span>="<span class="html-attribute-value">wrap</span>"&gt;</span></td></tr><tr><td class="line-number" value="222"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="223"></td><td class="line-content"><span class="html-tag">&lt;section <span class="html-attribute-name">id</span>="<span class="html-attribute-value">start</span>"&gt;</span></td></tr><tr><td class="line-number" value="224"></td><td class="line-content">  <span class="html-tag">&lt;p <span class="html-attribute-name">class</span>="<span class="html-attribute-value">eyebrow</span>"&gt;</span>Быстрая проверка<span class="html-tag">&lt;/p&gt;</span></td></tr><tr><td class="line-number" value="225"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="226"></td><td class="line-content">  <span class="html-tag">&lt;h1&gt;</span>Проверьте договор поставки за 2 минуты<span class="html-tag">&lt;/h1&gt;</span></td></tr><tr><td class="line-number" value="227"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="228"></td><td class="line-content">  <span class="html-tag">&lt;p <span class="html-attribute-name">class</span>="<span class="html-attribute-value">muted</span>"&gt;</span></td></tr><tr><td class="line-number" value="229"></td><td class="line-content">    Ответьте на несколько вопросов. Рекомендации в результате будут зависеть</td></tr><tr><td class="line-number" value="230"></td><td class="line-content">    от того, чьи интересы вы представляете.</td></tr><tr><td class="line-number" value="231"></td><td class="line-content">  <span class="html-tag">&lt;/p&gt;</span></td></tr><tr><td class="line-number" value="232"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="233"></td><td class="line-content">  <span class="html-tag">&lt;h3&gt;</span>Чьи интересы вы представляете?<span class="html-tag">&lt;/h3&gt;</span></td></tr><tr><td class="line-number" value="234"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="235"></td><td class="line-content">  <span class="html-tag">&lt;div <span class="html-attribute-name">class</span>="<span class="html-attribute-value">grid</span>"&gt;</span></td></tr><tr><td class="line-number" value="236"></td><td class="line-content">    <span class="html-tag">&lt;button <span class="html-attribute-name">class</span>="<span class="html-attribute-value">btn role</span>"&gt;</span>Поставщика<span class="html-tag">&lt;/button&gt;</span></td></tr><tr><td class="line-number" value="237"></td><td class="line-content">    <span class="html-tag">&lt;button <span class="html-attribute-name">class</span>="<span class="html-attribute-value">btn role</span>"&gt;</span>Покупателя<span class="html-tag">&lt;/button&gt;</span></td></tr><tr><td class="line-number" value="238"></td><td class="line-content">  <span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="239"></td><td class="line-content"><span class="html-tag">&lt;/section&gt;</span></td></tr><tr><td class="line-number" value="240"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="241"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="242"></td><td class="line-content"><span class="html-tag">&lt;section <span class="html-attribute-name">id</span>="<span class="html-attribute-value">quiz</span>" <span class="html-attribute-name">class</span>="<span class="html-attribute-value">hidden</span>"&gt;</span></td></tr><tr><td class="line-number" value="243"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="244"></td><td class="line-content">  <span class="html-tag">&lt;div <span class="html-attribute-name">class</span>="<span class="html-attribute-value">top</span>"&gt;</span></td></tr><tr><td class="line-number" value="245"></td><td class="line-content">    <span class="html-tag">&lt;span <span class="html-attribute-name">id</span>="<span class="html-attribute-value">counter</span>"&gt;</span><span class="html-tag">&lt;/span&gt;</span></td></tr><tr><td class="line-number" value="246"></td><td class="line-content">    <span class="html-tag">&lt;button <span class="html-attribute-name">class</span>="<span class="html-attribute-value">linkbtn</span>" <span class="html-attribute-name">id</span>="<span class="html-attribute-value">resetTop</span>"&gt;</span>Начать заново<span class="html-tag">&lt;/button&gt;</span></td></tr><tr><td class="line-number" value="247"></td><td class="line-content">  <span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="248"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="249"></td><td class="line-content">  <span class="html-tag">&lt;div <span class="html-attribute-name">class</span>="<span class="html-attribute-value">progress</span>"&gt;</span></td></tr><tr><td class="line-number" value="250"></td><td class="line-content">    <span class="html-tag">&lt;div <span class="html-attribute-name">id</span>="<span class="html-attribute-value">bar</span>"&gt;</span><span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="251"></td><td class="line-content">  <span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="252"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="253"></td><td class="line-content">  <span class="html-tag">&lt;div <span class="html-attribute-name">class</span>="<span class="html-attribute-value">card</span>"&gt;</span></td></tr><tr><td class="line-number" value="254"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="255"></td><td class="line-content">    <span class="html-tag">&lt;p <span class="html-attribute-name">class</span>="<span class="html-attribute-value">eyebrow</span>" <span class="html-attribute-name">id</span>="<span class="html-attribute-value">cat</span>"&gt;</span><span class="html-tag">&lt;/p&gt;</span></td></tr><tr><td class="line-number" value="256"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="257"></td><td class="line-content">    <span class="html-tag">&lt;h2 <span class="html-attribute-name">id</span>="<span class="html-attribute-value">question</span>"&gt;</span><span class="html-tag">&lt;/h2&gt;</span></td></tr><tr><td class="line-number" value="258"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="259"></td><td class="line-content">    <span class="html-tag">&lt;p <span class="html-attribute-name">class</span>="<span class="html-attribute-value">muted</span>" <span class="html-attribute-name">id</span>="<span class="html-attribute-value">hint</span>"&gt;</span><span class="html-tag">&lt;/p&gt;</span></td></tr><tr><td class="line-number" value="260"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="261"></td><td class="line-content">    <span class="html-tag">&lt;div</span></td></tr><tr><td class="line-number" value="262"></td><td class="line-content"><span class="html-tag">      <span class="html-attribute-name">id</span>="<span class="html-attribute-value">answers</span>"</span></td></tr><tr><td class="line-number" value="263"></td><td class="line-content"><span class="html-tag">      <span class="html-attribute-name">style</span>="<span class="html-attribute-value">display:grid;gap:10px;margin-top:22px</span>"&gt;</span></td></tr><tr><td class="line-number" value="264"></td><td class="line-content">    <span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="265"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="266"></td><td class="line-content">  <span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="267"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="268"></td><td class="line-content"><span class="html-tag">&lt;/section&gt;</span></td></tr><tr><td class="line-number" value="269"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="270"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="271"></td><td class="line-content"><span class="html-tag">&lt;section <span class="html-attribute-name">id</span>="<span class="html-attribute-value">finish</span>" <span class="html-attribute-name">class</span>="<span class="html-attribute-value">hidden</span>"&gt;</span></td></tr><tr><td class="line-number" value="272"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="273"></td><td class="line-content">  <span class="html-tag">&lt;p <span class="html-attribute-name">class</span>="<span class="html-attribute-value">eyebrow</span>"&gt;</span>Результат проверки<span class="html-tag">&lt;/p&gt;</span></td></tr><tr><td class="line-number" value="274"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="275"></td><td class="line-content">  <span class="html-tag">&lt;h1 <span class="html-attribute-name">id</span>="<span class="html-attribute-value">resultTitle</span>"&gt;</span><span class="html-tag">&lt;/h1&gt;</span></td></tr><tr><td class="line-number" value="276"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="277"></td><td class="line-content">  <span class="html-tag">&lt;p <span class="html-attribute-name">class</span>="<span class="html-attribute-value">muted</span>" <span class="html-attribute-name">id</span>="<span class="html-attribute-value">resultIntro</span>"&gt;</span><span class="html-tag">&lt;/p&gt;</span></td></tr><tr><td class="line-number" value="278"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="279"></td><td class="line-content">  <span class="html-tag">&lt;div <span class="html-attribute-name">id</span>="<span class="html-attribute-value">problems</span>"&gt;</span><span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="280"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="281"></td><td class="line-content">  <span class="html-tag">&lt;div <span class="html-attribute-name">id</span>="<span class="html-attribute-value">good</span>" <span class="html-attribute-name">class</span>="<span class="html-attribute-value">good hidden</span>"&gt;</span></td></tr><tr><td class="line-number" value="282"></td><td class="line-content">    <span class="html-tag">&lt;strong&gt;</span>По этим условиям замечаний не нашли<span class="html-tag">&lt;/strong&gt;</span></td></tr><tr><td class="line-number" value="283"></td><td class="line-content">    <span class="html-tag">&lt;p <span class="html-attribute-name">id</span>="<span class="html-attribute-value">goodText</span>" <span class="html-attribute-name">class</span>="<span class="html-attribute-value">muted</span>"&gt;</span><span class="html-tag">&lt;/p&gt;</span></td></tr><tr><td class="line-number" value="284"></td><td class="line-content">  <span class="html-tag">&lt;/div&gt;</span></td></tr><tr><td class="line-number" value="285"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="286"></td><td class="line-content">  <span class="html-tag">&lt;button <span class="html-attribute-name">id</span>="<span class="html-attribute-value">reset</span>" <span class="html-attribute-name">class</span>="<span class="html-attribute-value">btn primary</span>"&gt;</span></td></tr><tr><td class="line-number" value="287"></td><td class="line-content">    Проверить другой договор</td></tr><tr><td class="line-number" value="288"></td><td class="line-content">  <span class="html-tag">&lt;/button&gt;</span></td></tr><tr><td class="line-number" value="289"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="290"></td><td class="line-content">  <span class="html-tag">&lt;p <span class="html-attribute-name">class</span>="<span class="html-attribute-value">muted</span>" <span class="html-attribute-name">style</span>="<span class="html-attribute-value">font-size:12px</span>"&gt;</span></td></tr><tr><td class="line-number" value="291"></td><td class="line-content">    Проверка помогает обратить внимание на спорные условия</td></tr><tr><td class="line-number" value="292"></td><td class="line-content">    и не заменяет анализ конкретного договора.</td></tr><tr><td class="line-number" value="293"></td><td class="line-content">  <span class="html-tag">&lt;/p&gt;</span></td></tr><tr><td class="line-number" value="294"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="295"></td><td class="line-content"><span class="html-tag">&lt;/section&gt;</span></td></tr><tr><td class="line-number" value="296"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="297"></td><td class="line-content"><span class="html-tag">&lt;/main&gt;</span></td></tr><tr><td class="line-number" value="298"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="299"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="300"></td><td class="line-content"><span class="html-tag">&lt;script&gt;</span></td></tr><tr><td class="line-number" value="301"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="302"></td><td class="line-content">const data = [</td></tr><tr><td class="line-number" value="303"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="304"></td><td class="line-content">{</td></tr><tr><td class="line-number" value="305"></td><td class="line-content">  cat:'Предмет договора',</td></tr><tr><td class="line-number" value="306"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="307"></td><td class="line-content">  q:'В договоре можно точно определить наименование товара?',</td></tr><tr><td class="line-number" value="308"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="309"></td><td class="line-content">  hint:'Проверьте договор, приложения, спецификации и порядок оформления заявок.',</td></tr><tr><td class="line-number" value="310"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="311"></td><td class="line-content">  name:'Наименование товара',</td></tr><tr><td class="line-number" value="312"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="313"></td><td class="line-content">  level:'Высокий риск',</td></tr><tr><td class="line-number" value="314"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="315"></td><td class="line-content">  supplier:{</td></tr><tr><td class="line-number" value="316"></td><td class="line-content">    danger:'Если товар определен неясно, возрастает риск спора о том, что именно поставщик обязан передать.',</td></tr><tr><td class="line-number" value="317"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="318"></td><td class="line-content">    fix:'Привяжите товар к конкретному прайс-листу, каталогу, спецификации или заявке и укажите, какая редакция документа действует на дату заказа.'</td></tr><tr><td class="line-number" value="319"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="320"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="321"></td><td class="line-content">  buyer:{</td></tr><tr><td class="line-number" value="322"></td><td class="line-content">    danger:'Если характеристик недостаточно, есть риск получить не тот товар или более дешевый и менее качественный аналог.',</td></tr><tr><td class="line-number" value="323"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="324"></td><td class="line-content">    fix:'Подробно укажите наименование и характеристики товара: модель, комплектацию, идентификаторы и другие существенные для покупки признаки.'</td></tr><tr><td class="line-number" value="325"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="326"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="327"></td><td class="line-content">  practice:'В договоре указали только общее наименование товара. Суд квалифицировал договор как рамочный, поэтому покупатель не смог потребовать допоставку.',</td></tr><tr><td class="line-number" value="328"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="329"></td><td class="line-content">  court:'Постановление АС Московского округа от 10.07.2023 по делу № А40-189528/2022'</td></tr><tr><td class="line-number" value="330"></td><td class="line-content">},</td></tr><tr><td class="line-number" value="331"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="332"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="333"></td><td class="line-content">{</td></tr><tr><td class="line-number" value="334"></td><td class="line-content">  cat:'Предмет договора',</td></tr><tr><td class="line-number" value="335"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="336"></td><td class="line-content">  q:'В договоре можно определить количество товара или способ его расчета?',</td></tr><tr><td class="line-number" value="337"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="338"></td><td class="line-content">  hint:'Количество может быть указано в штуках, килограммах либо определяться по согласованному способу.',</td></tr><tr><td class="line-number" value="339"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="340"></td><td class="line-content">  name:'Количество товара',</td></tr><tr><td class="line-number" value="341"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="342"></td><td class="line-content">  level:'Высокий риск',</td></tr><tr><td class="line-number" value="343"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="344"></td><td class="line-content">  supplier:{</td></tr><tr><td class="line-number" value="345"></td><td class="line-content">    danger:'Неясное количество может привести к спору об объеме обязанности поставщика и о заключенности договора.',</td></tr><tr><td class="line-number" value="346"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="347"></td><td class="line-content">    fix:'Укажите количество товара либо понятный порядок его определения по заявкам, спецификациям или иным согласованным документам.'</td></tr><tr><td class="line-number" value="348"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="349"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="350"></td><td class="line-content">  buyer:{</td></tr><tr><td class="line-number" value="351"></td><td class="line-content">    danger:'Если количество нельзя определить, покупателю будет сложнее требовать поставку недостающего объема, а договор могут признать незаключенным.',</td></tr><tr><td class="line-number" value="352"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="353"></td><td class="line-content">    fix:'Зафиксируйте точное количество товара или способ расчета, который не позволяет поставщику определять объем односторонне.'</td></tr><tr><td class="line-number" value="354"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="355"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="356"></td><td class="line-content">  practice:'В контракте по ошибке указали одну тонну песчано-гравийной смеси вместо 1000 тонн. Суды признали контракт незаключенным.',</td></tr><tr><td class="line-number" value="357"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="358"></td><td class="line-content">  court:'Постановление АС Восточно-Сибирского округа от 21.03.2022 по делу № А19-7801/2021'</td></tr><tr><td class="line-number" value="359"></td><td class="line-content">},</td></tr><tr><td class="line-number" value="360"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="361"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="362"></td><td class="line-content">{</td></tr><tr><td class="line-number" value="363"></td><td class="line-content">  cat:'Цена',</td></tr><tr><td class="line-number" value="364"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="365"></td><td class="line-content">  q:'Из договора понятно, что именно входит в цену?',</td></tr><tr><td class="line-number" value="366"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="367"></td><td class="line-content">  hint:'Например, доставка, погрузка, упаковка, маркировка, налоги и другие расходы.',</td></tr><tr><td class="line-number" value="368"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="369"></td><td class="line-content">  name:'Состав цены',</td></tr><tr><td class="line-number" value="370"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="371"></td><td class="line-content">  level:'Высокий риск',</td></tr><tr><td class="line-number" value="372"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="373"></td><td class="line-content">  supplier:{</td></tr><tr><td class="line-number" value="374"></td><td class="line-content">    danger:'Если не выделить НДС и дополнительные расходы, поставщик может получить меньше, чем рассчитывал, или не взыскать часть затрат отдельно.',</td></tr><tr><td class="line-number" value="375"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="376"></td><td class="line-content">    fix:'Укажите НДС и прямо перечислите расходы, которые не входят в цену товара и оплачиваются покупателем дополнительно.'</td></tr><tr><td class="line-number" value="377"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="378"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="379"></td><td class="line-content">  buyer:{</td></tr><tr><td class="line-number" value="380"></td><td class="line-content">    danger:'Если состав цены не раскрыт, поставщик может потребовать отдельно оплатить доставку и другие сопутствующие расходы.',</td></tr><tr><td class="line-number" value="381"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="382"></td><td class="line-content">    fix:'Пропишите, что цена включает доставку, погрузку и разгрузку, упаковку, маркировку, документацию, налоги и иные необходимые расходы.'</td></tr><tr><td class="line-number" value="383"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="384"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="385"></td><td class="line-content">  practice:'В споре цена товара не была согласована: договор ссылался на приложения, которых не оказалось. Стоимость пришлось определять исходя из рыночных показателей.',</td></tr><tr><td class="line-number" value="386"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="387"></td><td class="line-content">  court:'Постановление АС Северо-Западного округа от 26.10.2022 по делу № А56-73909/2021'</td></tr><tr><td class="line-number" value="388"></td><td class="line-content">},</td></tr><tr><td class="line-number" value="389"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="390"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="391"></td><td class="line-content">{</td></tr><tr><td class="line-number" value="392"></td><td class="line-content">  cat:'Цена',</td></tr><tr><td class="line-number" value="393"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="394"></td><td class="line-content">  q:'Если цена может меняться, из договора понятно, когда и как ее пересчитывают?',</td></tr><tr><td class="line-number" value="395"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="396"></td><td class="line-content">  hint:'Если цена фиксированная и меняться не может, отвечайте «Да».',</td></tr><tr><td class="line-number" value="397"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="398"></td><td class="line-content">  name:'Изменение цены',</td></tr><tr><td class="line-number" value="399"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="400"></td><td class="line-content">  level:'Высокий риск',</td></tr><tr><td class="line-number" value="401"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="402"></td><td class="line-content">  supplier:{</td></tr><tr><td class="line-number" value="403"></td><td class="line-content">    danger:'Если основание повышения цены сформулировано как санкция за нарушение покупателя, суд может квалифицировать увеличение как неустойку и снизить ее.',</td></tr><tr><td class="line-number" value="404"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="405"></td><td class="line-content">    fix:'Укажите объективные основания изменения цены, порядок расчета и момент применения новой цены. Отделите изменение цены от мер ответственности покупателя.'</td></tr><tr><td class="line-number" value="406"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="407"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="408"></td><td class="line-content">  buyer:{</td></tr><tr><td class="line-number" value="409"></td><td class="line-content">    danger:'Неясный механизм изменения цены создает риск одностороннего увеличения суммы, которую придется заплатить.',</td></tr><tr><td class="line-number" value="410"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="411"></td><td class="line-content">    fix:'Закрепите исчерпывающие основания и пределы изменения цены, порядок уведомления и укажите, применяется ли новая цена к уже оплаченному товару.'</td></tr><tr><td class="line-number" value="412"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="413"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="414"></td><td class="line-content">  practice:'После оплаты товара поставщик потребовал доплату из-за повышения отпускных цен изготовителя. Суды отказали: договор запрещал менять цену уже оплаченного товара.',</td></tr><tr><td class="line-number" value="415"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="416"></td><td class="line-content">  court:'Постановление АС Центрального округа от 21.04.2022 по делу № А36-6597/2021'</td></tr><tr><td class="line-number" value="417"></td><td class="line-content">},</td></tr><tr><td class="line-number" value="418"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="419"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="420"></td><td class="line-content">{</td></tr><tr><td class="line-number" value="421"></td><td class="line-content">  cat:'Срок поставки',</td></tr><tr><td class="line-number" value="422"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="423"></td><td class="line-content">  q:'Можно точно определить срок поставки товара?',</td></tr><tr><td class="line-number" value="424"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="425"></td><td class="line-content">  hint:'Это может быть дата, период либо срок, который рассчитывается от определенного события.',</td></tr><tr><td class="line-number" value="426"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="427"></td><td class="line-content">  name:'Срок поставки',</td></tr><tr><td class="line-number" value="428"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="429"></td><td class="line-content">  level:'Средний риск',</td></tr><tr><td class="line-number" value="430"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="431"></td><td class="line-content">  supplier:{</td></tr><tr><td class="line-number" value="432"></td><td class="line-content">    danger:'Если поставка зависит от заявок покупателя, но срок их направления не определен, возникает спор о том, когда поставщик должен исполнить обязательство.',</td></tr><tr><td class="line-number" value="433"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="434"></td><td class="line-content">    fix:'Если срок зависит от заявки, укажите, за сколько дней покупатель обязан ее направить и как по заявке определяется срок поставки партии.'</td></tr><tr><td class="line-number" value="435"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="436"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="437"></td><td class="line-content">  buyer:{</td></tr><tr><td class="line-number" value="438"></td><td class="line-content">    danger:'Если срок поставки не определен, будет сложнее доказать просрочку и применить договорные санкции.',</td></tr><tr><td class="line-number" value="439"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="440"></td><td class="line-content">    fix:'Укажите конкретный срок после предоплаты, заявки или другого события. Если товар нужен к определенной дате, предусмотрите последствия просрочки.'</td></tr><tr><td class="line-number" value="441"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="442"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="443"></td><td class="line-content">  practice:'Поставщик потребовал убытки из-за нарушения графика поставки. Стороны не согласовали график и время разгрузки, поэтому суд отказал во взыскании.',</td></tr><tr><td class="line-number" value="444"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="445"></td><td class="line-content">  court:'Постановление АС Западно-Сибирского округа от 22.06.2020 по делу № А46-5633/2019'</td></tr><tr><td class="line-number" value="446"></td><td class="line-content">},</td></tr><tr><td class="line-number" value="447"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="448"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="449"></td><td class="line-content">{</td></tr><tr><td class="line-number" value="450"></td><td class="line-content">  cat:'Приемка',</td></tr><tr><td class="line-number" value="451"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="452"></td><td class="line-content">  q:'В договоре понятно, как и в какой срок покупатель проверяет товар?',</td></tr><tr><td class="line-number" value="453"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="454"></td><td class="line-content">  hint:'Проверьте сроки осмотра, проверку количества и качества и порядок фиксации недостатков.',</td></tr><tr><td class="line-number" value="455"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="456"></td><td class="line-content">  name:'Порядок приемки',</td></tr><tr><td class="line-number" value="457"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="458"></td><td class="line-content">  level:'Средний риск',</td></tr><tr><td class="line-number" value="459"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="460"></td><td class="line-content">  supplier:{</td></tr><tr><td class="line-number" value="461"></td><td class="line-content">    danger:'Если процедура приемки не определена, покупатель сможет ссылаться на недостатки без заранее согласованного порядка их фиксации, а спор станет менее предсказуемым.',</td></tr><tr><td class="line-number" value="462"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="463"></td><td class="line-content">    fix:'Закрепите срок осмотра, порядок составления акта, вызова представителя поставщика и фиксации недостатков товара.'</td></tr><tr><td class="line-number" value="464"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="465"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="466"></td><td class="line-content">  buyer:{</td></tr><tr><td class="line-number" value="467"></td><td class="line-content">    danger:'Нарушение согласованной процедуры приемки может осложнить доказательство того, что товар был некачественным уже при передаче.',</td></tr><tr><td class="line-number" value="468"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="469"></td><td class="line-content">    fix:'Установите реалистичный срок проверки, понятный порядок фиксации недостатков и уведомления поставщика. Не делайте процедуру чрезмерно сложной для покупателя.'</td></tr><tr><td class="line-number" value="470"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="471"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="472"></td><td class="line-content">  practice:'Нарушение процедуры приемки может создать покупателю дополнительные сложности в доказывании недостатков товара.',</td></tr><tr><td class="line-number" value="473"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="474"></td><td class="line-content">  court:'Постановление АС Северо-Западного округа от 18.07.2024 по делу № А52-2563/2023'</td></tr><tr><td class="line-number" value="475"></td><td class="line-content">},</td></tr><tr><td class="line-number" value="476"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="477"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="478"></td><td class="line-content">{</td></tr><tr><td class="line-number" value="479"></td><td class="line-content">  cat:'Качество',</td></tr><tr><td class="line-number" value="480"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="481"></td><td class="line-content">  q:'Если для товара важны особые требования к качеству, они названы конкретно?',</td></tr><tr><td class="line-number" value="482"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="483"></td><td class="line-content">  hint:'Например, стандарт, технические характеристики, состав или назначение товара.',</td></tr><tr><td class="line-number" value="484"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="485"></td><td class="line-content">  name:'Качество товара',</td></tr><tr><td class="line-number" value="486"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="487"></td><td class="line-content">  level:'Средний риск',</td></tr><tr><td class="line-number" value="488"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="489"></td><td class="line-content">  supplier:{</td></tr><tr><td class="line-number" value="490"></td><td class="line-content">    danger:'Избыточно детальные требования расширяют круг оснований, по которым покупатель сможет заявить о несоответствии товара.',</td></tr><tr><td class="line-number" value="491"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="492"></td><td class="line-content">    fix:'Если это подходит для конкретного товара, закрепите общие требования к качеству со ссылкой на применимые нормативные документы и не добавляйте лишние характеристики.'</td></tr><tr><td class="line-number" value="493"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="494"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="495"></td><td class="line-content">  buyer:{</td></tr><tr><td class="line-number" value="496"></td><td class="line-content">    danger:'Общие формулировки могут затруднить доказательство того, что поставщик передал товар, который не соответствует ожиданиям покупателя.',</td></tr><tr><td class="line-number" value="497"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="498"></td><td class="line-content">    fix:'Назовите конкретные стандарты, технические характеристики и иные требования, которым должен соответствовать товар.'</td></tr><tr><td class="line-number" value="499"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="500"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="501"></td><td class="line-content">  practice:'В одном из споров покупатель лишился возможности отказаться от последующих партий из-за условий договора о последствиях выявленного брака.',</td></tr><tr><td class="line-number" value="502"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="503"></td><td class="line-content">  court:'Постановление АС Московского округа от 16.06.2025 по делу № А41-89221/2023'</td></tr><tr><td class="line-number" value="504"></td><td class="line-content">},</td></tr><tr><td class="line-number" value="505"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="506"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="507"></td><td class="line-content">{</td></tr><tr><td class="line-number" value="508"></td><td class="line-content">  cat:'Ответственность',</td></tr><tr><td class="line-number" value="509"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="510"></td><td class="line-content">  q:'В договоре понятно, за какие именно нарушения начисляется неустойка?',</td></tr><tr><td class="line-number" value="511"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="512"></td><td class="line-content">  hint:'Например, отдельно за просрочку поставки и отдельно за полную непоставку товара.',</td></tr><tr><td class="line-number" value="513"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="514"></td><td class="line-content">  name:'Ответственность',</td></tr><tr><td class="line-number" value="515"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="516"></td><td class="line-content">  level:'Средний риск',</td></tr><tr><td class="line-number" value="517"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="518"></td><td class="line-content">  supplier:{</td></tr><tr><td class="line-number" value="519"></td><td class="line-content">    danger:'Слишком общая формулировка может вызвать спор о том, за какое именно нарушение начисляется неустойка и с какой суммы ее считать.',</td></tr><tr><td class="line-number" value="520"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="521"></td><td class="line-content">    fix:'Точно назовите нарушение, базу для расчета, размер и период начисления. Не объединяйте разные нарушения одной расплывчатой формулировкой.'</td></tr><tr><td class="line-number" value="522"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="523"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="524"></td><td class="line-content">  buyer:{</td></tr><tr><td class="line-number" value="525"></td><td class="line-content">    danger:'Если ответственность поставщика описана узко, неустойка за просрочку может не применяться к полной непоставке товара.',</td></tr><tr><td class="line-number" value="526"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="527"></td><td class="line-content">    fix:'Отдельно предусмотрите последствия просрочки, полной непоставки и других существенных нарушений поставщика, которые важны для покупателя.'</td></tr><tr><td class="line-number" value="528"></td><td class="line-content">  },</td></tr><tr><td class="line-number" value="529"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="530"></td><td class="line-content">  practice:'В договоре была неустойка за нарушение срока поставки. Кассация указала, что такое условие относится к просрочке и не обязательно применяется, когда товар вообще не поставили.',</td></tr><tr><td class="line-number" value="531"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="532"></td><td class="line-content">  court:'Постановление АС Северо-Западного округа от 05.08.2025 по делу № А21-13939/2023'</td></tr><tr><td class="line-number" value="533"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="534"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="535"></td><td class="line-content">];</td></tr><tr><td class="line-number" value="536"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="537"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="538"></td><td class="line-content">let i = 0;</td></tr><tr><td class="line-number" value="539"></td><td class="line-content">let answers = [];</td></tr><tr><td class="line-number" value="540"></td><td class="line-content">let role = '';</td></tr><tr><td class="line-number" value="541"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="542"></td><td class="line-content">const $ = selector =&gt; document.querySelector(selector);</td></tr><tr><td class="line-number" value="543"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="544"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="545"></td><td class="line-content">document.querySelectorAll('.role').forEach(button =&gt; {</td></tr><tr><td class="line-number" value="546"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="547"></td><td class="line-content">  button.addEventListener('click', () =&gt; {</td></tr><tr><td class="line-number" value="548"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="549"></td><td class="line-content">    role =</td></tr><tr><td class="line-number" value="550"></td><td class="line-content">      button.textContent.trim() === 'Поставщика'</td></tr><tr><td class="line-number" value="551"></td><td class="line-content">        ? 'supplier'</td></tr><tr><td class="line-number" value="552"></td><td class="line-content">        : 'buyer';</td></tr><tr><td class="line-number" value="553"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="554"></td><td class="line-content">    $('#start').classList.add('hidden');</td></tr><tr><td class="line-number" value="555"></td><td class="line-content">    $('#quiz').classList.remove('hidden');</td></tr><tr><td class="line-number" value="556"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="557"></td><td class="line-content">    draw();</td></tr><tr><td class="line-number" value="558"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="559"></td><td class="line-content">  });</td></tr><tr><td class="line-number" value="560"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="561"></td><td class="line-content">});</td></tr><tr><td class="line-number" value="562"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="563"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="564"></td><td class="line-content">function draw() {</td></tr><tr><td class="line-number" value="565"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="566"></td><td class="line-content">  const item = data[i];</td></tr><tr><td class="line-number" value="567"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="568"></td><td class="line-content">  $('#counter').textContent =</td></tr><tr><td class="line-number" value="569"></td><td class="line-content">    `Вопрос ${i + 1} из ${data.length}`;</td></tr><tr><td class="line-number" value="570"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="571"></td><td class="line-content">  $('#bar').style.width =</td></tr><tr><td class="line-number" value="572"></td><td class="line-content">    `${(i + 1) / data.length * 100}%`;</td></tr><tr><td class="line-number" value="573"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="574"></td><td class="line-content">  $('#cat').textContent = item.cat;</td></tr><tr><td class="line-number" value="575"></td><td class="line-content">  $('#question').textContent = item.q;</td></tr><tr><td class="line-number" value="576"></td><td class="line-content">  $('#hint').textContent = item.hint;</td></tr><tr><td class="line-number" value="577"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="578"></td><td class="line-content">  $('#answers').innerHTML = '';</td></tr><tr><td class="line-number" value="579"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="580"></td><td class="line-content">  [</td></tr><tr><td class="line-number" value="581"></td><td class="line-content">    ['yes', 'Да'],</td></tr><tr><td class="line-number" value="582"></td><td class="line-content">    ['no', 'Нет'],</td></tr><tr><td class="line-number" value="583"></td><td class="line-content">    ['unknown', 'Не уверен']</td></tr><tr><td class="line-number" value="584"></td><td class="line-content">  ].forEach(([value, label]) =&gt; {</td></tr><tr><td class="line-number" value="585"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="586"></td><td class="line-content">    const button = document.createElement('button');</td></tr><tr><td class="line-number" value="587"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="588"></td><td class="line-content">    button.className = 'btn';</td></tr><tr><td class="line-number" value="589"></td><td class="line-content">    button.type = 'button';</td></tr><tr><td class="line-number" value="590"></td><td class="line-content">    button.textContent = label;</td></tr><tr><td class="line-number" value="591"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="592"></td><td class="line-content">    button.addEventListener('click', () =&gt; {</td></tr><tr><td class="line-number" value="593"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="594"></td><td class="line-content">      answers.push({</td></tr><tr><td class="line-number" value="595"></td><td class="line-content">        ...item,</td></tr><tr><td class="line-number" value="596"></td><td class="line-content">        answer:value</td></tr><tr><td class="line-number" value="597"></td><td class="line-content">      });</td></tr><tr><td class="line-number" value="598"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="599"></td><td class="line-content">      i++;</td></tr><tr><td class="line-number" value="600"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="601"></td><td class="line-content">      if (i &lt; data.length) {</td></tr><tr><td class="line-number" value="602"></td><td class="line-content">        draw();</td></tr><tr><td class="line-number" value="603"></td><td class="line-content">      } else {</td></tr><tr><td class="line-number" value="604"></td><td class="line-content">        show();</td></tr><tr><td class="line-number" value="605"></td><td class="line-content">      }</td></tr><tr><td class="line-number" value="606"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="607"></td><td class="line-content">    });</td></tr><tr><td class="line-number" value="608"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="609"></td><td class="line-content">    $('#answers').appendChild(button);</td></tr><tr><td class="line-number" value="610"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="611"></td><td class="line-content">  });</td></tr><tr><td class="line-number" value="612"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="613"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="614"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="615"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="616"></td><td class="line-content">function show() {</td></tr><tr><td class="line-number" value="617"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="618"></td><td class="line-content">  $('#quiz').classList.add('hidden');</td></tr><tr><td class="line-number" value="619"></td><td class="line-content">  $('#finish').classList.remove('hidden');</td></tr><tr><td class="line-number" value="620"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="621"></td><td class="line-content">  const bad =</td></tr><tr><td class="line-number" value="622"></td><td class="line-content">    answers.filter(item =&gt; item.answer !== 'yes');</td></tr><tr><td class="line-number" value="623"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="624"></td><td class="line-content">  const good =</td></tr><tr><td class="line-number" value="625"></td><td class="line-content">    answers.filter(item =&gt; item.answer === 'yes');</td></tr><tr><td class="line-number" value="626"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="627"></td><td class="line-content">  const side =</td></tr><tr><td class="line-number" value="628"></td><td class="line-content">    role === 'supplier'</td></tr><tr><td class="line-number" value="629"></td><td class="line-content">      ? 'поставщика'</td></tr><tr><td class="line-number" value="630"></td><td class="line-content">      : 'покупателя';</td></tr><tr><td class="line-number" value="631"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="632"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="633"></td><td class="line-content">  $('#resultTitle').textContent =</td></tr><tr><td class="line-number" value="634"></td><td class="line-content">    bad.length</td></tr><tr><td class="line-number" value="635"></td><td class="line-content">      ? `Что стоит исправить в интересах ${side}`</td></tr><tr><td class="line-number" value="636"></td><td class="line-content">      : 'По ответам явных проблем не нашли';</td></tr><tr><td class="line-number" value="637"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="638"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="639"></td><td class="line-content">  $('#resultIntro').textContent =</td></tr><tr><td class="line-number" value="640"></td><td class="line-content">    bad.length</td></tr><tr><td class="line-number" value="641"></td><td class="line-content">      ? 'Рекомендации ниже меняются в зависимости от выбранной стороны договора.'</td></tr><tr><td class="line-number" value="642"></td><td class="line-content">      : 'Все проверенные условия определены. Это не исключает других рисков конкретного договора.';</td></tr><tr><td class="line-number" value="643"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="644"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="645"></td><td class="line-content">  $('#problems').innerHTML = '';</td></tr><tr><td class="line-number" value="646"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="647"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="648"></td><td class="line-content">  bad.forEach(item =&gt; {</td></tr><tr><td class="line-number" value="649"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="650"></td><td class="line-content">    const text = item[role];</td></tr><tr><td class="line-number" value="651"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="652"></td><td class="line-content">    const element =</td></tr><tr><td class="line-number" value="653"></td><td class="line-content">      document.createElement('article');</td></tr><tr><td class="line-number" value="654"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="655"></td><td class="line-content">    element.className = 'result';</td></tr><tr><td class="line-number" value="656"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="657"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="658"></td><td class="line-content">    element.innerHTML = `</td></tr><tr><td class="line-number" value="659"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="660"></td><td class="line-content">      &lt;div class="result-head"&gt;</td></tr><tr><td class="line-number" value="661"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="662"></td><td class="line-content">        &lt;h2 style="margin:0"&gt;</td></tr><tr><td class="line-number" value="663"></td><td class="line-content">          ${item.name}</td></tr><tr><td class="line-number" value="664"></td><td class="line-content">        &lt;/h2&gt;</td></tr><tr><td class="line-number" value="665"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="666"></td><td class="line-content">        &lt;span class="badge ${</td></tr><tr><td class="line-number" value="667"></td><td class="line-content">          item.level === 'Высокий риск'</td></tr><tr><td class="line-number" value="668"></td><td class="line-content">            ? 'high'</td></tr><tr><td class="line-number" value="669"></td><td class="line-content">            : 'medium'</td></tr><tr><td class="line-number" value="670"></td><td class="line-content">        }"&gt;</td></tr><tr><td class="line-number" value="671"></td><td class="line-content">          ${item.level}</td></tr><tr><td class="line-number" value="672"></td><td class="line-content">        &lt;/span&gt;</td></tr><tr><td class="line-number" value="673"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="674"></td><td class="line-content">      &lt;/div&gt;</td></tr><tr><td class="line-number" value="675"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="676"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="677"></td><td class="line-content">      &lt;p class="muted"&gt;</td></tr><tr><td class="line-number" value="678"></td><td class="line-content">        ${</td></tr><tr><td class="line-number" value="679"></td><td class="line-content">          item.answer === 'unknown'</td></tr><tr><td class="line-number" value="680"></td><td class="line-content">            ? 'Вы ответили: «Не уверен».'</td></tr><tr><td class="line-number" value="681"></td><td class="line-content">            : 'Вы ответили: «Нет».'</td></tr><tr><td class="line-number" value="682"></td><td class="line-content">        }</td></tr><tr><td class="line-number" value="683"></td><td class="line-content">      &lt;/p&gt;</td></tr><tr><td class="line-number" value="684"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="685"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="686"></td><td class="line-content">      &lt;div class="answer-block"&gt;</td></tr><tr><td class="line-number" value="687"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="688"></td><td class="line-content">        &lt;p class="answer-label"&gt;</td></tr><tr><td class="line-number" value="689"></td><td class="line-content">          &lt;strong&gt;Чем грозит:&lt;/strong&gt;</td></tr><tr><td class="line-number" value="690"></td><td class="line-content">        &lt;/p&gt;</td></tr><tr><td class="line-number" value="691"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="692"></td><td class="line-content">        &lt;p&gt;</td></tr><tr><td class="line-number" value="693"></td><td class="line-content">          ${text.danger}</td></tr><tr><td class="line-number" value="694"></td><td class="line-content">        &lt;/p&gt;</td></tr><tr><td class="line-number" value="695"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="696"></td><td class="line-content">      &lt;/div&gt;</td></tr><tr><td class="line-number" value="697"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="698"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="699"></td><td class="line-content">      &lt;div class="answer-block"&gt;</td></tr><tr><td class="line-number" value="700"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="701"></td><td class="line-content">        &lt;p class="answer-label"&gt;</td></tr><tr><td class="line-number" value="702"></td><td class="line-content">          &lt;strong&gt;Как исправить:&lt;/strong&gt;</td></tr><tr><td class="line-number" value="703"></td><td class="line-content">        &lt;/p&gt;</td></tr><tr><td class="line-number" value="704"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="705"></td><td class="line-content">        &lt;p&gt;</td></tr><tr><td class="line-number" value="706"></td><td class="line-content">          ${text.fix}</td></tr><tr><td class="line-number" value="707"></td><td class="line-content">        &lt;/p&gt;</td></tr><tr><td class="line-number" value="708"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="709"></td><td class="line-content">      &lt;/div&gt;</td></tr><tr><td class="line-number" value="710"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="711"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="712"></td><td class="line-content">      &lt;div class="practice"&gt;</td></tr><tr><td class="line-number" value="713"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="714"></td><td class="line-content">        &lt;div class="practice-title"&gt;</td></tr><tr><td class="line-number" value="715"></td><td class="line-content">          Судебная практика</td></tr><tr><td class="line-number" value="716"></td><td class="line-content">        &lt;/div&gt;</td></tr><tr><td class="line-number" value="717"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="718"></td><td class="line-content">        &lt;div&gt;</td></tr><tr><td class="line-number" value="719"></td><td class="line-content">          ${item.practice}</td></tr><tr><td class="line-number" value="720"></td><td class="line-content">        &lt;/div&gt;</td></tr><tr><td class="line-number" value="721"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="722"></td><td class="line-content">        &lt;div class="court"&gt;</td></tr><tr><td class="line-number" value="723"></td><td class="line-content">          ${item.court}</td></tr><tr><td class="line-number" value="724"></td><td class="line-content">        &lt;/div&gt;</td></tr><tr><td class="line-number" value="725"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="726"></td><td class="line-content">      &lt;/div&gt;</td></tr><tr><td class="line-number" value="727"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="728"></td><td class="line-content">    `;</td></tr><tr><td class="line-number" value="729"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="730"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="731"></td><td class="line-content">    $('#problems').appendChild(element);</td></tr><tr><td class="line-number" value="732"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="733"></td><td class="line-content">  });</td></tr><tr><td class="line-number" value="734"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="735"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="736"></td><td class="line-content">  if (good.length) {</td></tr><tr><td class="line-number" value="737"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="738"></td><td class="line-content">    $('#good').classList.remove('hidden');</td></tr><tr><td class="line-number" value="739"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="740"></td><td class="line-content">    $('#goodText').textContent =</td></tr><tr><td class="line-number" value="741"></td><td class="line-content">      good</td></tr><tr><td class="line-number" value="742"></td><td class="line-content">        .map(item =&gt; item.name)</td></tr><tr><td class="line-number" value="743"></td><td class="line-content">        .join(' · ');</td></tr><tr><td class="line-number" value="744"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="745"></td><td class="line-content">  } else {</td></tr><tr><td class="line-number" value="746"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="747"></td><td class="line-content">    $('#good').classList.add('hidden');</td></tr><tr><td class="line-number" value="748"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="749"></td><td class="line-content">  }</td></tr><tr><td class="line-number" value="750"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="751"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="752"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="753"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="754"></td><td class="line-content">function reset() {</td></tr><tr><td class="line-number" value="755"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="756"></td><td class="line-content">  i = 0;</td></tr><tr><td class="line-number" value="757"></td><td class="line-content">  answers = [];</td></tr><tr><td class="line-number" value="758"></td><td class="line-content">  role = '';</td></tr><tr><td class="line-number" value="759"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="760"></td><td class="line-content">  $('#quiz').classList.add('hidden');</td></tr><tr><td class="line-number" value="761"></td><td class="line-content">  $('#finish').classList.add('hidden');</td></tr><tr><td class="line-number" value="762"></td><td class="line-content">  $('#start').classList.remove('hidden');</td></tr><tr><td class="line-number" value="763"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="764"></td><td class="line-content">}</td></tr><tr><td class="line-number" value="765"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="766"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="767"></td><td class="line-content">$('#reset').addEventListener('click', reset);</td></tr><tr><td class="line-number" value="768"></td><td class="line-content">$('#resetTop').addEventListener('click', reset);</td></tr><tr><td class="line-number" value="769"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="770"></td><td class="line-content"><span class="html-tag">&lt;/script&gt;</span></td></tr><tr><td class="line-number" value="771"></td><td class="line-content"><br></td></tr><tr><td class="line-number" value="772"></td><td class="line-content"><span class="html-tag">&lt;/body&gt;</span></td></tr><tr><td class="line-number" value="773"></td><td class="line-content"><span class="html-tag">&lt;/html&gt;</span></td></tr><tr><td class="line-number" value="774"></td><td class="line-content"></td></tr></tbody></table></div></body></html>
+<style>
+:root {
+  --brand:#A8A3FF;
+  --soft:#F3F1FF;
+  --gold:#C3A052;
+  --ink:#292833;
+  --muted:#74727C;
+  --line:#E5E3EA;
+  --white:#fff;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:var(--ink);
+  background:#fff;
+}
+
+.wrap {
+  max-width:760px;
+  margin:48px auto;
+  padding:0 20px;
+}
+
+.eyebrow {
+  color:var(--gold);
+  font-size:14px;
+  font-weight:700;
+  margin:0 0 8px;
+}
+
+h1 {
+  font-size:32px;
+  line-height:1.15;
+  margin:0 0 12px;
+}
+
+p {
+  line-height:1.55;
+}
+
+.muted {
+  color:var(--muted);
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.btn {
+  width:100%;
+  min-height:52px;
+  padding:13px 16px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fff;
+  color:var(--ink);
+  font:inherit;
+  font-weight:700;
+  text-align:left;
+  cursor:pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background:var(--soft);
+  border-color:var(--brand);
+  outline:none;
+}
+
+.primary {
+  width:auto;
+  background:var(--brand);
+  border:0;
+}
+
+.card {
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:24px;
+}
+
+.progress {
+  height:8px;
+  background:var(--soft);
+  border-radius:20px;
+  overflow:hidden;
+  margin:12px 0 22px;
+}
+
+.progress > div {
+  height:100%;
+  background:var(--brand);
+}
+
+.top {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.linkbtn {
+  border:0;
+  background:none;
+  color:var(--muted);
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+.hidden {
+  display:none;
+}
+
+.result {
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px;
+  margin:14px 0;
+}
+
+.result-head {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.badge {
+  font-size:12px;
+  font-weight:700;
+  padding:5px 9px;
+  border-radius:99px;
+}
+
+.high {
+  background:#fbf7ec;
+  color:#80661f;
+}
+
+.medium {
+  background:var(--soft);
+  color:#655f8f;
+}
+
+.answer-block {
+  margin-top:18px;
+}
+
+.answer-label {
+  margin-bottom:4px;
+}
+
+.answer-block p:last-child {
+  margin-top:0;
+}
+
+.practice {
+  background:#fcfaf4;
+  border-left:3px solid var(--gold);
+  padding:14px 16px;
+  border-radius:8px;
+  margin-top:16px;
+}
+
+.practice-title {
+  color:var(--gold);
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.court {
+  font-weight:700;
+  margin-top:9px;
+}
+
+.good {
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px;
+  margin:18px 0;
+}
+
+@media(max-width:560px) {
+  .wrap {
+    margin:28px auto;
+  }
+
+  .grid {
+    grid-template-columns:1fr;
+  }
+
+  h1 {
+    font-size:27px;
+  }
+
+  .card {
+    padding:18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="wrap">
+
+<section id="start">
+  <p class="eyebrow">Быстрая проверка</p>
+
+  <h1>Проверьте договор поставки за 2 минуты</h1>
+
+  <p class="muted">
+    Ответьте на несколько вопросов. Рекомендации в результате будут зависеть
+    от того, чьи интересы вы представляете.
+  </p>
+
+  <h3>Чьи интересы вы представляете?</h3>
+
+  <div class="grid">
+    <button class="btn role">Поставщика</button>
+    <button class="btn role">Покупателя</button>
+  </div>
+</section>
+
+
+<section id="quiz" class="hidden">
+
+  <div class="top">
+    <span id="counter"></span>
+    <button class="linkbtn" id="resetTop">Начать заново</button>
+  </div>
+
+  <div class="progress">
+    <div id="bar"></div>
+  </div>
+
+  <div class="card">
+
+    <p class="eyebrow" id="cat"></p>
+
+    <h2 id="question"></h2>
+
+    <p class="muted" id="hint"></p>
+
+    <div
+      id="answers"
+      style="display:grid;gap:10px;margin-top:22px">
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="finish" class="hidden">
+
+  <p class="eyebrow">Результат проверки</p>
+
+  <h1 id="resultTitle"></h1>
+
+  <p class="muted" id="resultIntro"></p>
+
+  <div id="problems"></div>
+
+  <div id="good" class="good hidden">
+    <strong>По этим условиям замечаний не нашли</strong>
+    <p id="goodText" class="muted"></p>
+  </div>
+
+  <button id="reset" class="btn primary">
+    Проверить другой договор
+  </button>
+
+  <p class="muted" style="font-size:12px">
+    Проверка помогает обратить внимание на спорные условия
+    и не заменяет анализ конкретного договора.
+  </p>
+
+</section>
+
+</main>
+
+
+<script>
+
+const data = [
+
+{
+  cat:'Предмет договора',
+
+  q:'В договоре можно точно определить наименование товара?',
+
+  hint:'Проверьте договор, приложения, спецификации и порядок оформления заявок.',
+
+  name:'Наименование товара',
+
+  level:'Высокий риск',
+
+  supplier:{
+    danger:'Если товар определен неясно, возрастает риск спора о том, что именно поставщик обязан передать.',
+
+    fix:'Привяжите товар к конкретному прайс-листу, каталогу, спецификации или заявке и укажите, какая редакция документа действует на дату заказа.'
+  },
+
+  buyer:{
+    danger:'Если характеристик недостаточно, есть риск получить не тот товар или более дешевый и менее качественный аналог.',
+
+    fix:'Подробно укажите наименование и характеристики товара: модель, комплектацию, идентификаторы и другие существенные для покупки признаки.'
+  },
+
+  practice:'В договоре указали только общее наименование товара. Суд квалифицировал договор как рамочный, поэтому покупатель не смог потребовать допоставку.',
+
+  court:'Постановление АС Московского округа от 10.07.2023 по делу № А40-189528/2022'
+},
+
+
+{
+  cat:'Предмет договора',
+
+  q:'В договоре можно определить количество товара или способ его расчета?',
+
+  hint:'Количество может быть указано в штуках, килограммах либо определяться по согласованному способу.',
+
+  name:'Количество товара',
+
+  level:'Высокий риск',
+
+  supplier:{
+    danger:'Неясное количество может привести к спору об объеме обязанности поставщика и о заключенности договора.',
+
+    fix:'Укажите количество товара либо понятный порядок его определения по заявкам, спецификациям или иным согласованным документам.'
+  },
+
+  buyer:{
+    danger:'Если количество нельзя определить, покупателю будет сложнее требовать поставку недостающего объема, а договор могут признать незаключенным.',
+
+    fix:'Зафиксируйте точное количество товара или способ расчета, который не позволяет поставщику определять объем односторонне.'
+  },
+
+  practice:'В контракте по ошибке указали одну тонну песчано-гравийной смеси вместо 1000 тонн. Суды признали контракт незаключенным.',
+
+  court:'Постановление АС Восточно-Сибирского округа от 21.03.2022 по делу № А19-7801/2021'
+},
+
+
+{
+  cat:'Цена',
+
+  q:'Из договора понятно, что именно входит в цену?',
+
+  hint:'Например, доставка, погрузка, упаковка, маркировка, налоги и другие расходы.',
+
+  name:'Состав цены',
+
+  level:'Высокий риск',
+
+  supplier:{
+    danger:'Если не выделить НДС и дополнительные расходы, поставщик может получить меньше, чем рассчитывал, или не взыскать часть затрат отдельно.',
+
+    fix:'Укажите НДС и прямо перечислите расходы, которые не входят в цену товара и оплачиваются покупателем дополнительно.'
+  },
+
+  buyer:{
+    danger:'Если состав цены не раскрыт, поставщик может потребовать отдельно оплатить доставку и другие сопутствующие расходы.',
+
+    fix:'Пропишите, что цена включает доставку, погрузку и разгрузку, упаковку, маркировку, документацию, налоги и иные необходимые расходы.'
+  },
+
+  practice:'В споре цена товара не была согласована: договор ссылался на приложения, которых не оказалось. Стоимость пришлось определять исходя из рыночных показателей.',
+
+  court:'Постановление АС Северо-Западного округа от 26.10.2022 по делу № А56-73909/2021'
+},
+
+
+{
+  cat:'Цена',
+
+  q:'Если цена может меняться, из договора понятно, когда и как ее пересчитывают?',
+
+  hint:'Если цена фиксированная и меняться не может, отвечайте «Да».',
+
+  name:'Изменение цены',
+
+  level:'Высокий риск',
+
+  supplier:{
+    danger:'Если основание повышения цены сформулировано как санкция за нарушение покупателя, суд может квалифицировать увеличение как неустойку и снизить ее.',
+
+    fix:'Укажите объективные основания изменения цены, порядок расчета и момент применения новой цены. Отделите изменение цены от мер ответственности покупателя.'
+  },
+
+  buyer:{
+    danger:'Неясный механизм изменения цены создает риск одностороннего увеличения суммы, которую придется заплатить.',
+
+    fix:'Закрепите исчерпывающие основания и пределы изменения цены, порядок уведомления и укажите, применяется ли новая цена к уже оплаченному товару.'
+  },
+
+  practice:'После оплаты товара поставщик потребовал доплату из-за повышения отпускных цен изготовителя. Суды отказали: договор запрещал менять цену уже оплаченного товара.',
+
+  court:'Постановление АС Центрального округа от 21.04.2022 по делу № А36-6597/2021'
+},
+
+
+{
+  cat:'Срок поставки',
+
+  q:'Можно точно определить срок поставки товара?',
+
+  hint:'Это может быть дата, период либо срок, который рассчитывается от определенного события.',
+
+  name:'Срок поставки',
+
+  level:'Средний риск',
+
+  supplier:{
+    danger:'Если поставка зависит от заявок покупателя, но срок их направления не определен, возникает спор о том, когда поставщик должен исполнить обязательство.',
+
+    fix:'Если срок зависит от заявки, укажите, за сколько дней покупатель обязан ее направить и как по заявке определяется срок поставки партии.'
+  },
+
+  buyer:{
+    danger:'Если срок поставки не определен, будет сложнее доказать просрочку и применить договорные санкции.',
+
+    fix:'Укажите конкретный срок после предоплаты, заявки или другого события. Если товар нужен к определенной дате, предусмотрите последствия просрочки.'
+  },
+
+  practice:'Поставщик потребовал убытки из-за нарушения графика поставки. Стороны не согласовали график и время разгрузки, поэтому суд отказал во взыскании.',
+
+  court:'Постановление АС Западно-Сибирского округа от 22.06.2020 по делу № А46-5633/2019'
+},
+
+
+{
+  cat:'Приемка',
+
+  q:'В договоре понятно, как и в какой срок покупатель проверяет товар?',
+
+  hint:'Проверьте сроки осмотра, проверку количества и качества и порядок фиксации недостатков.',
+
+  name:'Порядок приемки',
+
+  level:'Средний риск',
+
+  supplier:{
+    danger:'Если процедура приемки не определена, покупатель сможет ссылаться на недостатки без заранее согласованного порядка их фиксации, а спор станет менее предсказуемым.',
+
+    fix:'Закрепите срок осмотра, порядок составления акта, вызова представителя поставщика и фиксации недостатков товара.'
+  },
+
+  buyer:{
+    danger:'Нарушение согласованной процедуры приемки может осложнить доказательство того, что товар был некачественным уже при передаче.',
+
+    fix:'Установите реалистичный срок проверки, понятный порядок фиксации недостатков и уведомления поставщика. Не делайте процедуру чрезмерно сложной для покупателя.'
+  },
+
+  practice:'Нарушение процедуры приемки может создать покупателю дополнительные сложности в доказывании недостатков товара.',
+
+  court:'Постановление АС Северо-Западного округа от 18.07.2024 по делу № А52-2563/2023'
+},
+
+
+{
+  cat:'Качество',
+
+  q:'Если для товара важны особые требования к качеству, они названы конкретно?',
+
+  hint:'Например, стандарт, технические характеристики, состав или назначение товара.',
+
+  name:'Качество товара',
+
+  level:'Средний риск',
+
+  supplier:{
+    danger:'Избыточно детальные требования расширяют круг оснований, по которым покупатель сможет заявить о несоответствии товара.',
+
+    fix:'Если это подходит для конкретного товара, закрепите общие требования к качеству со ссылкой на применимые нормативные документы и не добавляйте лишние характеристики.'
+  },
+
+  buyer:{
+    danger:'Общие формулировки могут затруднить доказательство того, что поставщик передал товар, который не соответствует ожиданиям покупателя.',
+
+    fix:'Назовите конкретные стандарты, технические характеристики и иные требования, которым должен соответствовать товар.'
+  },
+
+  practice:'В одном из споров покупатель лишился возможности отказаться от последующих партий из-за условий договора о последствиях выявленного брака.',
+
+  court:'Постановление АС Московского округа от 16.06.2025 по делу № А41-89221/2023'
+},
+
+
+{
+  cat:'Ответственность',
+
+  q:'В договоре понятно, за какие именно нарушения начисляется неустойка?',
+
+  hint:'Например, отдельно за просрочку поставки и отдельно за полную непоставку товара.',
+
+  name:'Ответственность',
+
+  level:'Средний риск',
+
+  supplier:{
+    danger:'Слишком общая формулировка может вызвать спор о том, за какое именно нарушение начисляется неустойка и с какой суммы ее считать.',
+
+    fix:'Точно назовите нарушение, базу для расчета, размер и период начисления. Не объединяйте разные нарушения одной расплывчатой формулировкой.'
+  },
+
+  buyer:{
+    danger:'Если ответственность поставщика описана узко, неустойка за просрочку может не применяться к полной непоставке товара.',
+
+    fix:'Отдельно предусмотрите последствия просрочки, полной непоставки и других существенных нарушений поставщика, которые важны для покупателя.'
+  },
+
+  practice:'В договоре была неустойка за нарушение срока поставки. Кассация указала, что такое условие относится к просрочке и не обязательно применяется, когда товар вообще не поставили.',
+
+  court:'Постановление АС Северо-Западного округа от 05.08.2025 по делу № А21-13939/2023'
+}
+
+];
+
+
+let i = 0;
+let answers = [];
+let role = '';
+
+const $ = selector => document.querySelector(selector);
+
+
+document.querySelectorAll('.role').forEach(button => {
+
+  button.addEventListener('click', () => {
+
+    role =
+      button.textContent.trim() === 'Поставщика'
+        ? 'supplier'
+        : 'buyer';
+
+    $('#start').classList.add('hidden');
+    $('#quiz').classList.remove('hidden');
+
+    draw();
+
+  });
+
+});
+
+
+function draw() {
+
+  const item = data[i];
+
+  $('#counter').textContent =
+    `Вопрос ${i + 1} из ${data.length}`;
+
+  $('#bar').style.width =
+    `${(i + 1) / data.length * 100}%`;
+
+  $('#cat').textContent = item.cat;
+  $('#question').textContent = item.q;
+  $('#hint').textContent = item.hint;
+
+  $('#answers').innerHTML = '';
+
+  [
+    ['yes', 'Да'],
+    ['no', 'Нет'],
+    ['unknown', 'Не уверен']
+  ].forEach(([value, label]) => {
+
+    const button = document.createElement('button');
+
+    button.className = 'btn';
+    button.type = 'button';
+    button.textContent = label;
+
+    button.addEventListener('click', () => {
+
+      answers.push({
+        ...item,
+        answer:value
+      });
+
+      i++;
+
+      if (i < data.length) {
+        draw();
+      } else {
+        show();
+      }
+
+    });
+
+    $('#answers').appendChild(button);
+
+  });
+
+}
+
+
+function show() {
+
+  $('#quiz').classList.add('hidden');
+  $('#finish').classList.remove('hidden');
+
+  const bad =
+    answers.filter(item => item.answer !== 'yes');
+
+  const good =
+    answers.filter(item => item.answer === 'yes');
+
+  const side =
+    role === 'supplier'
+      ? 'поставщика'
+      : 'покупателя';
+
+
+  $('#resultTitle').textContent =
+    bad.length
+      ? `Что стоит исправить в интересах ${side}`
+      : 'По ответам явных проблем не нашли';
+
+
+  $('#resultIntro').textContent =
+    bad.length
+      ? 'Рекомендации ниже меняются в зависимости от выбранной стороны договора.'
+      : 'Все проверенные условия определены. Это не исключает других рисков конкретного договора.';
+
+
+  $('#problems').innerHTML = '';
+
+
+  bad.forEach(item => {
+
+    const text = item[role];
+
+    const element =
+      document.createElement('article');
+
+    element.className = 'result';
+
+
+    element.innerHTML = `
+
+      <div class="result-head">
+
+        <h2 style="margin:0">
+          ${item.name}
+        </h2>
+
+        <span class="badge ${
+          item.level === 'Высокий риск'
+            ? 'high'
+            : 'medium'
+        }">
+          ${item.level}
+        </span>
+
+      </div>
+
+
+      <p class="muted">
+        ${
+          item.answer === 'unknown'
+            ? 'Вы ответили: «Не уверен».'
+            : 'Вы ответили: «Нет».'
+        }
+      </p>
+
+
+      <div class="answer-block">
+
+        <p class="answer-label">
+          <strong>Чем грозит:</strong>
+        </p>
+
+        <p>
+          ${text.danger}
+        </p>
+
+      </div>
+
+
+      <div class="answer-block">
+
+        <p class="answer-label">
+          <strong>Как исправить:</strong>
+        </p>
+
+        <p>
+          ${text.fix}
+        </p>
+
+      </div>
+
+
+      <div class="practice">
+
+        <div class="practice-title">
+          Судебная практика
+        </div>
+
+        <div>
+          ${item.practice}
+        </div>
+
+        <div class="court">
+          ${item.court}
+        </div>
+
+      </div>
+
+    `;
+
+
+    $('#problems').appendChild(element);
+
+  });
+
+
+  if (good.length) {
+
+    $('#good').classList.remove('hidden');
+
+    $('#goodText').textContent =
+      good
+        .map(item => item.name)
+        .join(' · ');
+
+  } else {
+
+    $('#good').classList.add('hidden');
+
+  }
+
+}
+
+
+function reset() {
+
+  i = 0;
+  answers = [];
+  role = '';
+
+  $('#quiz').classList.add('hidden');
+  $('#finish').classList.add('hidden');
+  $('#start').classList.remove('hidden');
+
+}
+
+
+$('#reset').addEventListener('click', reset);
+$('#resetTop').addEventListener('click', reset);
+
+</script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src='https://zhuzhzha78.github.io/interactive/shablon/iframeResizer.contentWindow.min.js' type="text/javascript"></script>
+</body>
+</html>
