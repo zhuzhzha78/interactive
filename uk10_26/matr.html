@@ -535,7 +535,7 @@ const data = [
 ];
 
 
-let i = 0;
+let i1 = 0;
 let answers = [];
 let role = '';
 
@@ -563,13 +563,13 @@ document.querySelectorAll('.role').forEach(button => {
 
 function draw() {
 
-  const item = data[i];
+  const item = data[i1];
 
   $('#counter').textContent =
-    `Вопрос ${i + 1} из ${data.length}`;
+    `Вопрос ${i1 + 1} из ${data.length}`;
 
   $('#bar').style.width =
-    `${(i + 1) / data.length * 100}%`;
+    `${(i1 + 1) / data.length * 100}%`;
 
   $('#cat').textContent = item.cat;
   $('#question').textContent = item.q;
@@ -596,9 +596,9 @@ function draw() {
         answer:value
       });
 
-      i++;
+      i1++;
 
-      if (i < data.length) {
+      if (i1 < data.length) {
         draw();
       } else {
         show();
@@ -753,7 +753,7 @@ function show() {
 
 function reset() {
 
-  i = 0;
+  i1 = 0;
   answers = [];
   role = '';
 
