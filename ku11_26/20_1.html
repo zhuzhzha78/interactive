@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Интерактивный просмотр картинки</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Картинка в контенте: ширина родителя */
+    .image-container img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      display: block;
+    }
+
+    /* Затемнение фона */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.2); /* 20% затемнение */
+      z-index: 9998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Большая картинка без рамок */
+    .overlay-img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Контейнер с исходной картинкой -->
+  <div class="image-container">
+    <img id="main-image" src="https://e.profkiosk.ru/service_tbn2/h_ldroiml0ga.png" alt="Картинка для просмотра" />
+  </div>
+
+  <!-- Всплывающее окно с большой картинкой -->
+  <div id="image-overlay" class="overlay">
+    <img class="overlay-img" id="big-image" src="" alt="Увеличенная картинка" />
+  </div>
+
+  <script>
+    const mainImage = document.getElementById('main-image');
+    const overlay = document.getElementById('image-overlay');
+    const bigImage = document.getElementById('big-image');
+
+    // При клике на маленькую картинку — показываем большую
+    mainImage.addEventListener('click', () => {
+      bigImage.src = mainImage.src;
+      overlay.classList.add('active');
+    });
+
+    // При клике по большой картинке — закрываем
+    bigImage.addEventListener('click', () => {
+      overlay.classList.remove('active');
+    });
+
+    // Закрытие по клику на затемнённый фон (опционально)
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
