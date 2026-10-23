@@ -87,3 +87,41 @@
   <!-- Модальное окно (лайтбокс) -->
   <div class="lightbox-overlay" id="lightbox">
     <div class="lightbox-content">
+      <span class="close-btn" id="closeBtn">&times;</span>
+      <img src="" alt="Полноразмерная картинка" class="lightbox-img" id="bigImg" />
+    </div>
+  </div>
+
+  <script>
+    const previewImg = document.getElementById('previewImg');
+    const lightbox = document.getElementById('lightbox');
+    const bigImg = document.getElementById('bigImg');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // Открыть
+    previewImg.addEventListener('click', () => {
+      bigImg.src = previewImg.src;
+      lightbox.classList.add('active');
+    });
+
+    // Закрыть по крестику
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    // Закрыть по клику на саму большую картинку
+    bigImg.addEventListener('click', (e) => {
+      e.stopPropagation(); // чтобы клик по картинке не вызывал закрытие
+    });
+
+    // Закрыть по клику на фон (overlay)
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+      }
+    });
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src='https://zhuzhzha78.github.io/interactive/shablon/iframeResizer.contentWindow.min.js' type="text/javascript"></script>
+</body>
+</html>
